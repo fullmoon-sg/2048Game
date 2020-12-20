@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-  <GameBroad/>
+  <GameBoard/>
   </div>
 </template>
 
 <script>
-import GameBroad from './components/GameBroad'
+import GameBoard from './components/GameBoard'
 
 export default {
   name: 'App',
   components: {
-GameBroad
+GameBoard
   }
 }
 </script>
