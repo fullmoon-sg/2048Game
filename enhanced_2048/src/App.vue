@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-  <GameBoard/>
-  <!-- <opening/> -->
+      <ul>
+          <li><router-link to="/GameBroad">GameBoard</router-link></li>
+          <li><router-link to="/Login">Login</router-link></li>
+          <li><router-link to="/opening">opening</router-link></li>
+      </ul>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import GameBoard from './components/GameBoard'
-// import opening from './components/opening'
 
 export default {
   name: 'App',
   components: {
 // opening
-GameBoard 
+
   }
 }
 </script>

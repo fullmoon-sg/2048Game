@@ -1,5 +1,4 @@
-<template>
-        
+<template>    
     <div class="container">
         <div class="data">
             <div class="game-score">
@@ -44,56 +43,55 @@
            </div> <!-- end of reset div --> 
         </div><!-- end of data div --> 
         <div class="draw-broad">
-            <div class="i-box" id="i-box-00">
-                <div class="i-box-inner" v-if="g00">{{g00}}</div>
+            <div class="i-box" id="row-col-00">
+                <div class="row-col" v-if="rc00">{{rc00}}</div>
             </div>
-             <div class="i-box" id="i-box-01">
-                <div class="i-box-inner" v-if="g01">{{g01}}</div>
+             <div class="i-box" id="row-col-01">
+                <div class="row-col" v-if="rc01">{{rc01}}</div>
             </div>
-             <div class="i-box" id="i-box-02">
-                <div class="i-box-inner" v-if="g02">{{g02}}</div>
+             <div class="i-box" id="row-col-02">
+                <div class="row-col" v-if="rc02">{{rc02}}</div>
             </div>
-             <div class="i-box" id="i-box-03">
-                <div class="i-box-inner" v-if="g03">{{g03}}</div>
+             <div class="i-box" id="row-col-03">
+                <div class="row-col" v-if="rc03">{{rc03}}</div>
             </div>
-             <div class="i-box" id="i-box-10">
-                <div class="i-box-inner" v-if="g10">{{g10}}</div>
+             <div class="i-box" id="row-col-10">
+                <div class="row-col" v-if="rc10">{{rc10}}</div>
             </div>
-             <div class="i-box" id="i-box-11">
-                <div class="i-box-inner" v-if="g11">{{g11}}</div>
+             <div class="i-box" id="row-col-11">
+                <div class="row-col" v-if="rc11">{{rc11}}</div>
             </div>
-             <div class="i-box" id="i-box-12">
-                <div class="i-box-inner" v-if="g12">{{g12}}</div>
+             <div class="i-box" id="row-col-12">
+                <div class="row-col" v-if="rc12">{{rc12}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g13">{{g13}}</div>
+             <div class="i-box" id="row-col-13">
+                <div class="row-col" v-if="rc13">{{rc13}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g20">{{g20}}</div>
+              <div class="i-box" id="row-col-20">
+                <div class="row-col" v-if="rc20">{{rc20}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g21">{{g21}}</div>
+             <div class="i-box" id="row-col-21">
+                <div class="row-col" v-if="rc21">{{rc21}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g22">{{g22}}</div>
+             <div class="i-box" id="row-col-22">
+                <div class="row-col" v-if="rc22">{{rc22}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g23">{{g23}}</div>
+             <div class="i-box" id="row-col-23">
+                <div class="row-col" v-if="rc23">{{rc23}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g30">{{g30}}</div>
+             <div class="i-box" id="i-box-30">
+                <div class="row-col" v-if="rc30">{{rc30}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g31">{{g31}}</div>
+             <div class="i-box" id="i-box-31">
+                <div class="row-col" v-if="rc31">{{rc31}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g32">{{g32}}</div>
+             <div class="i-box" id="row-col-32">
+                <div class="row-col" v-if="rc32">{{rc32}}</div>
             </div>
-             <div class="i-box" id="i-box-13">
-                <div class="i-box-inner" v-if="g33">{{g33}}</div>
+             <div class="i-box" id="row-col-33">
+                <div class="row-col" v-if="rc33">{{rc33}}</div>
             </div> 
         </div><!-- end of broad div -->  
-    
     </div><!-- end of container div -->
 </template>
 
@@ -101,10 +99,10 @@
 export default {
     data : function(){
         return{
-            "g00" : "","g01" : "","g02" : "","g03" : "",
-            "g10" : "","g11" : "","g12" : "","g13" : "",
-            "g20" : "","g21" : "","g22" : "","g23" : "",
-            "g30" : "","g31" : "","g32" : "","g33" : "",    
+            "rc30" : "","rc31" : "","rc32" : "","rc33" : "",   
+            "rc20" : "","rc21" : "","rc22" : "","rc23" : "",
+            "rc10" : "","rc11" : "","rc12" : "","rc13" : "",
+            "rc00" : "","rc01" : "","rc02" : "","rc03" : "",
         }
     }  
 }
