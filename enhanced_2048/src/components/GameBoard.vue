@@ -4,8 +4,8 @@
         <div class="data">
             <div class="game-score">
                <h1>Game Score</h1>
-               <h2>0</h2>
-            </div> 
+               <h2>10000000</h2>
+            </div> <!-- end of Game Score div -->
             <div class="control">
            <div class="top">
                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
@@ -34,8 +34,16 @@
                 </svg>
            </div>
            </div> <!-- end of control div --> 
+           <div class="menu">
+               <div class= "reset">
+               <button class="btn btn-primary">Reset</button>
+               </div>
+               <div class="back">
+                   <button class="btn btn-primary">Back Menu</button>
+             </div>
+           </div> <!-- end of reset div --> 
         </div><!-- end of data div --> 
-        <div class="broad">
+        <div class="draw-broad">
             <div class="i-box" id="i-box-00">
                 <div class="i-box-inner" v-if="g00">{{g00}}</div>
             </div>
@@ -113,7 +121,8 @@ export default {
     background-color: cyan;
     margin-top: 100px;
     width: 250px;
-    height: 450px;
+    height: 650px;
+    border-radius : 15px;
 }
 
 .control{
@@ -123,7 +132,7 @@ export default {
 .game-score{
     top : 50px;
     padding : 0px 0px 25px 0px;
-    margin-bottom: 50px;
+    margin-bottom: 125px;
     text-align: center;
 }
 
@@ -156,7 +165,7 @@ export default {
     margin: 5px;
 }
 
-.broad{
+.draw-broad{
     background-color : rgba(255,100,0,1);
     width: 750px;
     height: 750px;
@@ -166,7 +175,6 @@ export default {
 }
 
 .i-box{
-
     width: 160px;
     height : 160px;
     background-color : rgba(255,240,200,1);
@@ -176,4 +184,19 @@ export default {
     margin : 11px;
 }
 
+.menu{
+    display : flex;
+    margin : 150px 0px 0px 0px;
+    padding : 5px;
+}
+
+.reset{
+    position : relative;
+    left : 10px;
+}
+
+.back{
+    position : relative;
+    left : 65px;
+}
 </style>
