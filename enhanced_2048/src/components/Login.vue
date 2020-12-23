@@ -2,14 +2,14 @@
     <div>
        <h1>Create A New and Promising Top Scorer</h1>
     <div>
-        <label class="form-lable">Champion, enter your name</label>
+        <label class="label-control">Champion, enter your name</label>
         <input type="text" class="form-control" v-model="name"/>
     </div>
      <div>
-        <label class="form-lable">Champion, enter your password</label>
+        <label class="form-label">Champion, enter your password</label>
         <input type="text" class="form-control" v-model="password"/>
     </div>
-    <button class="btn btn-primary" @click="addPlayer">A new star is born</button>
+    <button class="btn btn-primary mt-3" @click="addPlayer">A new star is born</button>
     </div>
 </template>
 

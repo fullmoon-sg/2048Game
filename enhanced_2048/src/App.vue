@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <ul>
-          <li><router-link to="/GameBroad">GameBoard</router-link></li>
+          <li><router-link to="/GameBoard">GameBoard</router-link></li>
           <li><router-link to="/Login">Login</router-link></li>
           <li><router-link to="/opening">opening</router-link></li>
       </ul>
@@ -14,7 +14,7 @@
 export default {
   name: 'App',
   components: {
-// opening
+        
 
   }
 }
