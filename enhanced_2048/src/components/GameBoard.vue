@@ -133,8 +133,7 @@ export default {
               }
           } 
           this.generate_2_or_4();    
-         },
-      
+         }, 
     generate_2_or_4 : function(){
         let row = Math.floor(Math.random() * 4);
         let column = Math.floor(Math.random() * 4);
@@ -145,6 +144,18 @@ export default {
             this.generate_2_or_4();
         }
     },
+    noMoreMove : function(){
+        let end = false;
+        for (let i=0; i < 4; i++){
+            for(let j=0; j<4; j++){
+                if(this.board[i][j] === ""){
+                    end=true;
+                }
+            }
+        }
+        return end;
+
+    }
   }, // end of methods
   computed: {
     score: function () {
