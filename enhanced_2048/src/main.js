@@ -15,7 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import GameBoard from './components/GameBoard'
 import Login from './components/Login'
-import opening from './components/opening'
+import Home from './components/Home'
 
 const routes = [
     {
@@ -25,7 +25,7 @@ const routes = [
         path:'/Login', component : Login
     },
     {
-        path:'/opening', component : opening
+        path:'/Home', component : Home
     },
 ]
 

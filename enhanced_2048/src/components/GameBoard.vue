@@ -127,8 +127,7 @@ export default {
                   if ((this.board[i+1][j] === "") && (this.board[i][j] !== ''))
                   {
                       this.$set(this.board[i+1],[j], this.board[i][j]);
-                      this.$set(this.board[i],[j], "");
-                      
+                      this.$set(this.board[i],[j], "");       
                   }
               }
           } 
@@ -161,9 +160,23 @@ export default {
                 this.board[i][j] = ""
                 }
         }
-       this.score = 0;
+       this.score;
        this.generate_2_or_4();
-    }
+    },
+
+    OccupiedSlot : function(){
+        for (let i=0; i < 4; i++){
+            for(let j=0; j<4; j++){
+                if (this.board[i][j] !== ' ')
+                {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+              }
+        }
+    },
 
   }, // end of methods
   computed: {

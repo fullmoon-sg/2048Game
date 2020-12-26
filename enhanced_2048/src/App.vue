@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><router-link to="/opening">Home</router-link></a>
+        <a class="nav-link" href="#"><router-link to="/Home">Home</router-link></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><router-link to="/Login">Login</router-link></a>
@@ -17,7 +17,6 @@
     </ul>
   </div>
 </nav>
-      
       <router-view></router-view>
   </div>
 </template>
