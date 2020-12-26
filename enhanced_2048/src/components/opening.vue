@@ -5,9 +5,12 @@
         <div>
             <!-- {{rearrange(hall_fame)}} -->
         <ul>
-            <li>Player Name : {{hf.player_name}}</li>
+            Player Name : {{hf.player_name}}
+            Score : {{hf.score}}
+            Date : {{hf.date}}  
+            <!-- <li>Player Name : {{hf.player_name}}</li>
             <li>Score : {{hf.score}}</li> 
-            <li>Date : {{hf.date}}</li>     
+            <li>Date : {{hf.date}}</li>      -->
         </ul>
         </div>
     </div>

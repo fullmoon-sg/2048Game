@@ -66,7 +66,7 @@
             </svg>
           </div>
         </div>
-        <div class="down">
+        <div class="down" @click="down">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -108,30 +108,43 @@
           </tr>
         </table>
       </div>
-    </div>
-    <!-- end of draw broad div -->
-  </div>
-  <!-- end of container div -->
+    </div><!-- end of draw broad div -->
+  </div><!-- end of container div -->
 </template>
 
 <script>
 export default {
   data: function () {
     return {
-      board: [],
+      board: [], 
     };
   },
   methods: {
-    // generate_2_or_4 : function(){
-    //     let row = Math.floor(Math.random() * 4);
-    //     let column = Math.floor(Math.random() * 4);
-    //     let random_2_4 = Math.floor(Math.random() > 0.6 ? 2 : 4);
-    //     if ((this.board[row],column) === '')
-    //     { this.$set(this.board[row],column, random_2_4)
-    //     } else{
-    //         generate_2_or_4();
-    //     }
-    // },
+      down : function(){ 
+          for(let i = 2; i >=0; i--){
+              for(let j=0; j < 4; j++)
+              {
+                  if ((this.board[i+1][j] === "") && (this.board[i][j] !== ''))
+                  {
+                      this.$set(this.board[i+1],[j], this.board[i][j]);
+                      this.$set(this.board[i],[j], "");
+                      
+                  }
+              }
+          } 
+          this.generate_2_or_4();    
+         },
+      
+    generate_2_or_4 : function(){
+        let row = Math.floor(Math.random() * 4);
+        let column = Math.floor(Math.random() * 4);
+        let random_2_4 = Math.floor(Math.random() > 0.6 ? 2 : 4);
+        if (this.board[row][column] === ''){
+         this.$set(this.board[row],column, random_2_4)
+        } else{
+            this.generate_2_or_4();
+        }
+    },
   }, // end of methods
   computed: {
     score: function () {
@@ -140,37 +153,34 @@ export default {
         for (let i = 0; i < 4; i++) {
           for (let j = 0; j < 4; j++) {
             if (this.board[i][j] !== "") {
-                console.log(this.board[i][j]);
               scores += this.board[i][j];
             }
           }
         }
-
         return scores;
       } else {
         return 0;
       }
     },
   },
-
   created: function () {
     let gameBoard = [];
-
     for (let i = 0; i < 4; i++) {
-      let row = [];
-      for (let j = 0; j < 4; j++) {
+       let row = [];
+    for (let j = 0; j < 4; j++) {
         row.push("");
       }
-      gameBoard.push(row);
-    }
-    this.board = gameBoard;
-    console.log(this.board);
+      gameBoard.push(row)
+      }   
+      this.board = gameBoard;
+      
     this.$set(
       this.board[Math.floor(Math.random() * 4)],
       Math.floor(Math.random() * 4),
-      Math.random() > 0.6 ? 2 : 4
+      Math.random() > 0.2 ? 2 : 4
     );
-  }, // end of mounted
+  
+  }, // end of created
 }; // end of export default
 </script>
 
@@ -248,7 +258,7 @@ td {
 
 .row-col-text {
   font-size: 108px;
-  text-align: center;
+margin-left: 30px;
 }
 
 .menu {
