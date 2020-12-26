@@ -88,7 +88,7 @@
       </div>
       <!-- end of control div -->
       <div class="menu">
-        <div class="reset">
+        <div class="reset" @click="restart">
           <button class="btn btn-primary">Reset</button>
         </div>
         <div class="back">
@@ -144,7 +144,7 @@ export default {
             this.generate_2_or_4();
         }
     },
-    noMoreMove : function(){
+    endGame : function(){
         let end = false;
         for (let i=0; i < 4; i++){
             for(let j=0; j<4; j++){
@@ -154,8 +154,17 @@ export default {
             }
         }
         return end;
-
+    },
+    restart : function(){
+        for (let i=0; i < 4; i++){
+            for(let j=0; j<4; j++){
+                this.board[i][j] = ""
+                }
+        }
+       this.score = 0;
+       this.generate_2_or_4();
     }
+
   }, // end of methods
   computed: {
     score: function () {
