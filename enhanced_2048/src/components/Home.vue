@@ -1,6 +1,5 @@
 <template>
 <div>
-   <div v-for="hf in hall_fame" v-bind:key="hf._id"> 
      <h1>Hall of Fame</h1>
         <div>
            <table class="table">
@@ -13,7 +12,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr v-for="hf in hall_fame" v-bind:key="hf._id">
                         <td>Rank</td>
                         <td>{{hf.name}}</td>
                         <td>{{hf.score}}</td>
@@ -22,8 +21,7 @@
                 </tbody>
             </table>
               
-        </div>
-      </div> 
+        </div>   
 </div>
 </template>
 
@@ -61,5 +59,9 @@ h1 {
   padding: 10px;
   background-color: rgba(250, 200, 200);
   font-weight: bold;
+}
+
+td{
+    font-size: 14px;
 }
 </style>

@@ -128,7 +128,12 @@ export default {
                   {
                       this.$set(this.board[i+1],[j], this.board[i][j]);
                       this.$set(this.board[i],[j], "");       
+                  }else if((this.board[i+1][j] !== "") && (this.board[i+1][j] === this.board[i][j])){
+                        
+                      this.$set(this.board[i+1],[j], this.board[i+1][j] + this.board[i][j] )
                   }
+                     
+                  
               }
           } 
           this.generate_2_or_4();    
