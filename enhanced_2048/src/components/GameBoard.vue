@@ -121,21 +121,20 @@ export default {
   },
   methods: {
       down : function(){ 
-          for(let i = 2; i >=0; i--){
-              for(let j=0; j < 4; j++)
-              {
-                  if ((this.board[i+1][j] === "") && (this.board[i][j] !== ''))
-                  {
-                      this.$set(this.board[i+1],[j], this.board[i][j]);
-                      this.$set(this.board[i],[j], "");       
-                  }else if((this.board[i+1][j] !== "") && (this.board[i+1][j] === this.board[i][j])){
-                        
-                      this.$set(this.board[i+1],[j], this.board[i+1][j] + this.board[i][j] )
-                  }
-                     
-                  
-              }
-          } 
+        for(let i =0; i<4; i++){
+            for (let j=2; j>=0;j--){
+                for(let k=3; k>j;k--){
+                        if((this.board[k][i] === "") && (this.board[j][i] !== "")){
+                             this.$set(this.board[k],[i], this.board[j][i]);
+                             this.$set(this.board[j],[i], "");     
+                        }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
+                            this.$set(this.board[k],[i], this.board[k][i] + this.board[j][i]);
+                            this.$set(this.board[j],[i],"")
+                        }
+                }
+            }
+        }   
+
           this.generate_2_or_4();    
          }, 
     generate_2_or_4 : function(){
