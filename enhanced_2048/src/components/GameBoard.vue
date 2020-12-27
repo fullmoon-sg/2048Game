@@ -7,7 +7,7 @@
       </div>
         <div class="game-score">
         <h3>Best Score</h3>
-        <h2>{{ bestscore }}</h2>
+        <h2>{{ bestScore }}</h2>
       </div>
       <!-- end of Game Score div -->
       <div class="control">
@@ -126,64 +126,90 @@ export default {
   },
   methods: {
      up : function(){ 
+         let x = false;
+         if (this.endGame()){
         for(let i =0; i<4; i++){
             for (let j=1; j<=3;j++){
                 for(let k=0; k<j;k++){
                         if((this.board[k][i] === "") && (this.board[j][i] !== "")){
+                            x = true;
                              this.$set(this.board[k],[i], this.board[j][i]);
                              this.$set(this.board[j],[i], "");     
                         }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
+                            x = true;
                             this.$set(this.board[k],[i],this.board[k][i] + this.board[j][i]);
                             this.$set(this.board[j],[i],"");
                         }
                 }
             }  
         }   
-        this.generate_2_or_4();  
+        this.generate_2_or_4(); 
+         } else {
+          alert("You are out of move !!! Reset the game and try again" );  
+    }
+    return x; 
     },  
     left : function(){ 
+        let x = false;
+    if(this.endGame()){
         for(let i =0; i<4; i++){
             for (let j=1; j<=3;j++){
                 for(let k=0; k<j;k++){
                         if((this.board[i][k] === "") && (this.board[i][j] !== "")){
+                            x =true;
                              this.$set(this.board[i],[k], this.board[i][j]);
                              this.$set(this.board[i],[j], "");     
                         }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
-                            console.log("Welcome")
+                            x = true;
                             this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
-                            this.$set(this.board[i],[j],"");
-                            console.log("GoodBye")
+                            this.$set(this.board[i],[j],"");                      
                         }
                 }
             }  
         }   
         this.generate_2_or_4();  
+    }else{
+          alert("You are out of move !!! Reset the game and try again" );  
+    }
+    return x; 
     }, 
      right : function(){ 
+         let x = false;
+         if(this.endGame()){
         for(let i =0; i<4; i++){
             for (let j=2; j>=0;j--){
                 for(let k=3; k>j;k--){
                         if((this.board[i][k] === "") && (this.board[i][j] !== "")){
+                            x = true;
                              this.$set(this.board[i],[k], this.board[i][j]);
                              this.$set(this.board[i],[j], "");     
                         }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
+                            x=true;
                             this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
                             this.$set(this.board[i],[j],"");
                         }
                 }
             }  
         }   
-        this.generate_2_or_4();  
+        this.generate_2_or_4(); 
+         } else{
+          alert("You are out of move !!! Reset the game and try again" );         
+      }
+      return x;
     }, 
     down : function(){ 
+        let x = false;
+        if(this.endGame()){
         for(let i =0; i<4; i++){
             for (let j=2; j>=0;j--){
                 for(let k=3; k>j;k--){
                         if((this.board[k][i] === "") && (this.board[j][i] !== "")){
-                            this.delaySlide();
+                            x = true;
                              this.$set(this.board[k],[i], this.board[j][i]);
                              this.$set(this.board[j],[i], "");     
                         }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
+                            x = true;
+                            this.delaySlide();
                             this.$set(this.board[k],[i],this.board[k][i] + this.board[j][i]);
                             this.$set(this.board[j],[i],"");
                         }
@@ -191,18 +217,22 @@ export default {
             }  
         }   
         this.generate_2_or_4();  
+      }else{
+          alert("You are out of move !!! Reset the game and try again" );
+           
+      }
+      return x;
     }, 
     generate_2_or_4 : function(){
         let r = Math.floor(Math.random() * 4);
         let c = Math.floor(Math.random() * 4);
         let random_2_4 = Math.floor(Math.random() > 0.6 ? 2 : 4);
-         console.log(r,c, random_2_4)
         if(this.board[r][c] === ""){
              this.$set(this.board[r],[c], parseInt(random_2_4))
         }else{
              this.generate_2_or_4();
        } 
-            //Sometimes it generates on occupied slot!!
+           
     },
     endGame : function(){
         let end = false;
@@ -227,7 +257,7 @@ export default {
 
     delaySlide : function(){
         let delay = setInterval(() => {clearInterval(delay)}, 5000);  
-    }
+    },
 
   }, // end of methods
   computed: {
@@ -273,6 +303,7 @@ export default {
   background-color: white;
   margin-top: 50px;
   display: flex;
+  font-family: 'Fredoka One', cursive;
 }
 
 .data {
@@ -347,13 +378,14 @@ td {
   background-color:#DACECE;
   border-radius: 15px;
   float: left;
-  padding: 11px;
+  padding: 20px;
   margin: 11px;
+text-align: center;
 }
 
 .row-col-text {
-  font-size: 108px;
-margin-left: 30px;
+  font-size: 72px;
+ color :grey;
 }
 
 .menu {
@@ -369,6 +401,6 @@ margin-left: 30px;
 
 .back {
   position: relative;
-  left: 65px;
+  left: 55px;
 }
 </style>

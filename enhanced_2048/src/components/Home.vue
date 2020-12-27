@@ -12,11 +12,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="hf in hall_fame" v-bind:key="hf._id">
+                    <tr v-for="hf in hall_fame" v-bind:key="hf._id" v-bind:bestScore="hf.score">
                         <td>Rank</td>
                         <td>{{hf.name}}</td>
                         <td>{{hf.score}}</td>
-                        <td>{{hf.date}} </td>
+                        <td>{{hf.date}}</td>
                      </tr>                         
                 </tbody>
             </table>
