@@ -2,8 +2,12 @@
   <div class="container">
     <div class="data">
       <div class="game-score">
-        <h1>Game Score</h1>
+        <h3>Game Score</h3>
         <h2>{{ score }}</h2>
+      </div>
+        <div class="game-score">
+        <h3>Best Score</h3>
+        <h2>{{ bestscore }}</h2>
       </div>
       <!-- end of Game Score div -->
       <div class="control">
@@ -114,10 +118,10 @@
 
 <script>
 export default {
+  props : ['bestScore'],
   data: function () {
     return {
-      board: [], 
-     
+      board: [],   
     };
   },
   methods: {
@@ -176,6 +180,7 @@ export default {
             for (let j=2; j>=0;j--){
                 for(let k=3; k>j;k--){
                         if((this.board[k][i] === "") && (this.board[j][i] !== "")){
+                            this.delaySlide();
                              this.$set(this.board[k],[i], this.board[j][i]);
                              this.$set(this.board[j],[i], "");     
                         }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
@@ -220,19 +225,9 @@ export default {
        this.generate_2_or_4();
     },
 
-    // occupiedSlot : function(){
-    //     for (let i=0; i < 4; i++){
-    //         for(let j=0; j<4; j++){
-    //             if (this.board[i][j] !== ' ')
-    //             {
-    //                 return true;
-    //             }
-    //             else{
-    //                 return false;
-    //             }
-    //           }
-    //     }
-    // },
+    delaySlide : function(){
+        let delay = setInterval(() => {clearInterval(delay)}, 5000);  
+    }
 
   }, // end of methods
   computed: {
@@ -281,7 +276,7 @@ export default {
 }
 
 .data {
-  background-color: cyan;
+  background-color: #C6B6AA;
   margin-top: 100px;
   width: 250px;
   height: 650px;
@@ -293,10 +288,13 @@ export default {
 }
 
 .game-score {
+    background-color:#DACECE;
   top: 50px;
   padding: 0px 0px 25px 0px;
-  margin-bottom: 125px;
+  margin : 10px;
   text-align: center;
+  border-radius: 10px;
+  color : white;
 }
 
 .top {
@@ -305,7 +303,7 @@ export default {
   text-align: center;
   height: 50px;
   width: 50px;
-  margin: 0px;
+  margin-top: 100px;
 }
 
 .left-right {
@@ -335,7 +333,7 @@ export default {
 }
 
 .draw-broad {
-  background-color: rgba(255, 100, 0, 1);
+  background-color: #C6B6AA;
   width: 750px;
   height: 750px;
   margin: 50px;
@@ -346,7 +344,7 @@ export default {
 td {
   width: 160px;
   height: 160px;
-  background-color: rgba(255, 240, 200, 1);
+  background-color:#DACECE;
   border-radius: 15px;
   float: left;
   padding: 11px;
@@ -360,7 +358,7 @@ margin-left: 30px;
 
 .menu {
   display: flex;
-  margin: 150px 0px 0px 0px;
+  margin: 50px 0px 0px 0px;
   padding: 5px;
 }
 
