@@ -7,7 +7,7 @@
       </div>
       <!-- end of Game Score div -->
       <div class="control">
-        <div class="top">
+        <div class="top" @click="up">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -27,7 +27,7 @@
           </svg>
         </div>
         <div class="left-right">
-          <div class="left">
+          <div class="left" @click="left">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -46,7 +46,7 @@
               />
             </svg>
           </div>
-          <div class="right">
+          <div class="right" @click="right">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -117,10 +117,61 @@ export default {
   data: function () {
     return {
       board: [], 
+     
     };
   },
   methods: {
-      down : function(){ 
+     up : function(){ 
+        for(let i =0; i<4; i++){
+            for (let j=1; j<=3;j++){
+                for(let k=0; k<j;k++){
+                        if((this.board[k][i] === "") && (this.board[j][i] !== "")){
+                             this.$set(this.board[k],[i], this.board[j][i]);
+                             this.$set(this.board[j],[i], "");     
+                        }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
+                            this.$set(this.board[k],[i],this.board[k][i] + this.board[j][i]);
+                            this.$set(this.board[j],[i],"");
+                        }
+                }
+            }  
+        }   
+        this.generate_2_or_4();  
+    },  
+    left : function(){ 
+        for(let i =0; i<4; i++){
+            for (let j=1; j<=3;j++){
+                for(let k=0; k<j;k++){
+                        if((this.board[i][k] === "") && (this.board[i][j] !== "")){
+                             this.$set(this.board[i],[k], this.board[i][j]);
+                             this.$set(this.board[i],[j], "");     
+                        }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
+                            console.log("Welcome")
+                            this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
+                            this.$set(this.board[i],[j],"");
+                            console.log("GoodBye")
+                        }
+                }
+            }  
+        }   
+        this.generate_2_or_4();  
+    }, 
+     right : function(){ 
+        for(let i =0; i<4; i++){
+            for (let j=2; j>=0;j--){
+                for(let k=3; k>j;k--){
+                        if((this.board[i][k] === "") && (this.board[i][j] !== "")){
+                             this.$set(this.board[i],[k], this.board[i][j]);
+                             this.$set(this.board[i],[j], "");     
+                        }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
+                            this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
+                            this.$set(this.board[i],[j],"");
+                        }
+                }
+            }  
+        }   
+        this.generate_2_or_4();  
+    }, 
+    down : function(){ 
         for(let i =0; i<4; i++){
             for (let j=2; j>=0;j--){
                 for(let k=3; k>j;k--){
@@ -128,24 +179,25 @@ export default {
                              this.$set(this.board[k],[i], this.board[j][i]);
                              this.$set(this.board[j],[i], "");     
                         }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
-                            this.$set(this.board[k],[i], this.board[k][i] + this.board[j][i]);
-                            this.$set(this.board[j],[i],"")
+                            this.$set(this.board[k],[i],this.board[k][i] + this.board[j][i]);
+                            this.$set(this.board[j],[i],"");
                         }
                 }
-            }
+            }  
         }   
-
-          this.generate_2_or_4();    
-         }, 
+        this.generate_2_or_4();  
+    }, 
     generate_2_or_4 : function(){
-        let row = Math.floor(Math.random() * 4);
-        let column = Math.floor(Math.random() * 4);
+        let r = Math.floor(Math.random() * 4);
+        let c = Math.floor(Math.random() * 4);
         let random_2_4 = Math.floor(Math.random() > 0.6 ? 2 : 4);
-        if (this.board[row][column] === ''){
-         this.$set(this.board[row],column, random_2_4)
-        } else{
-            this.generate_2_or_4();
-        }
+         console.log(r,c, random_2_4)
+        if(this.board[r][c] === ""){
+             this.$set(this.board[r],[c], parseInt(random_2_4))
+        }else{
+             this.generate_2_or_4();
+       } 
+            //Sometimes it generates on occupied slot!!
     },
     endGame : function(){
         let end = false;
@@ -168,19 +220,19 @@ export default {
        this.generate_2_or_4();
     },
 
-    OccupiedSlot : function(){
-        for (let i=0; i < 4; i++){
-            for(let j=0; j<4; j++){
-                if (this.board[i][j] !== ' ')
-                {
-                    return true;
-                }
-                else{
-                    return false;
-                }
-              }
-        }
-    },
+    // occupiedSlot : function(){
+    //     for (let i=0; i < 4; i++){
+    //         for(let j=0; j<4; j++){
+    //             if (this.board[i][j] !== ' ')
+    //             {
+    //                 return true;
+    //             }
+    //             else{
+    //                 return false;
+    //             }
+    //           }
+    //     }
+    // },
 
   }, // end of methods
   computed: {
@@ -248,8 +300,12 @@ export default {
 }
 
 .top {
-  margin: 5px;
+   position : relative;
+    left : 75px;
   text-align: center;
+  height: 50px;
+  width: 50px;
+  margin: 0px;
 }
 
 .left-right {
@@ -270,8 +326,12 @@ export default {
 }
 
 .down {
+    position : relative;
+    left : 75px;
   text-align: center;
-  margin: 5px;
+  height: 50px;
+  width: 50px;
+  margin: 0px;
 }
 
 .draw-broad {
