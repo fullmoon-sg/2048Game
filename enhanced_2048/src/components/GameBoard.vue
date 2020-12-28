@@ -11,8 +11,9 @@
         <h2>{{ bestScore }}</h2>
       </div>
       <!-- end of Game Score div -->
-      <div class="control">
-        <div class="top" @click="up">
+      <div>
+      <div class="control" v-if="control">
+        <div class="top" @click="up" style="cursor : pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -32,7 +33,7 @@
           </svg>
         </div>
         <div class="left-right">
-          <div class="left" @click="left">
+          <div class="left" @click="left" style="cursor : pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -51,7 +52,7 @@
               />
             </svg>
           </div>
-          <div class="right" @click="right">
+          <div class="right" @click="right" style="cursor : pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -71,7 +72,7 @@
             </svg>
           </div>
         </div>
-        <div class="down" @click="down">
+        <div class="down" @click="down" style="cursor : pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -91,10 +92,14 @@
           </svg>
         </div>
       </div>
+       <div class="control" v-else>
+        <p> Click "Restart" to begin a new Game</p>
+        </div>
+      </div>
       <!-- end of control div -->
       <div class="menu">
         <div class="reset" @click="restart">
-          <button class="btn btn-primary">Reset</button>
+          <button class="btn btn-primary">Restart</button>
         </div>
         <div class="back">
           <button class="btn btn-primary">Back Menu</button>
@@ -122,7 +127,8 @@ export default {
   props : ['bestScore'],
   data: function () {
     return {
-      board: [],   
+      board: [],  
+      control : true 
     };
   },
   methods: {
@@ -146,7 +152,8 @@ export default {
         }   
         this.generate_2_or_4(); 
          } else {
-          alert("You are out of move !!! Reset the game and try again" );  
+             this.control = false;
+          alert("You are out of move !!! Restart the game and try again" );  
     }
     return x; 
     },  
@@ -170,7 +177,8 @@ export default {
         }   
         this.generate_2_or_4();  
     }else{
-          alert("You are out of move !!! Reset the game and try again" );  
+          alert("You are out of move !!! Restart the game and try again" );  
+          this.control = false;
     }
     return x; 
     }, 
@@ -194,7 +202,8 @@ export default {
         }   
         this.generate_2_or_4(); 
          } else{
-          alert("You are out of move !!! Reset the game and try again" );         
+          alert("You are out of move !!! Restart the game and try again" );   
+          this.control = false;      
       }
       return x;
     }, 
@@ -219,7 +228,8 @@ export default {
         }   
         this.generate_2_or_4();  
       }else{
-          alert("You are out of move !!! Reset the game and try again" );
+          this.control = false;
+          alert("You are out of move !!! Restart the game and try again" );
            
       }
       return x;
@@ -254,6 +264,7 @@ export default {
         }
        this.score;
        this.generate_2_or_4();
+       this.control = true;
     },
 
     delaySlide : function(){
@@ -408,6 +419,6 @@ text-align: center;
 
 .back {
   position: relative;
-  left: 55px;
+  left: 40px;
 }
 </style>

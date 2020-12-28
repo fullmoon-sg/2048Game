@@ -2,23 +2,45 @@
   <div>
     <div class="modal-container" id="modal">
       <div v-if="register">
-      <span class="modal-heading">ENTER YOUR DETAILS</span>
-      <form class="form">
-        <input type="text" name="name" placeholder="Your champion name"  v-model="name"><br />
-        <input type="password" name="password" placeholder="Your password...Shhhh...." v-model="password"/><br />
-        <input type="submit" class="btnRegister" value="Register" />
-      </form>
-      <button @click="register = !register" class="signIn">Have an account already?</button>
+        <span class="modal-heading">ENTER YOUR DETAILS</span>
+        <form class="form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your champion name"
+            v-model="name"
+          /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Your password...Shhhh...."
+            v-model="password"
+          /><br />
+          <input type="submit" class="btnRegister" value="Register" />
+        </form>
+        <button @click="register = !register" class="signIn">
+          Have an account already?
+        </button>
       </div>
       <div v-else>
-      <span class="modal-heading">ENTER YOUR DETAILS</span>
-      <form class="form">
-        <input type="text" name="name" placeholder="Your champion name"  v-model="name"><br />
-        <input type="password" name="password" placeholder="Your password...Shhhh...." v-model="password"/><br />
-        <input type="submit" class="btnRegister" value="Login" />
-        <p>Welcome Back Champion!</p>
-      </form>
-      <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
+        <span class="modal-heading">ENTER YOUR DETAILS</span>
+        <form class="form">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your champion name"
+            v-model="name"
+          /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Your password...Shhhh...."
+            v-model="password"
+          /><br />
+          <input type="submit" class="btnRegister" value="Login" />
+          <p>Welcome Back Champion!</p>
+        </form>
+        <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
       </div>
     </div>
   </div>
@@ -31,7 +53,7 @@ export default {
     return {
       name: "",
       password: "",
-      register: true
+      register: true,
     };
   },
   methods: {
@@ -102,7 +124,7 @@ input {
 }
 
 .signIn {
-   background-color: rgba(218, 200, 190, 1);
+  background-color: rgba(218, 200, 190, 1);
   color: black;
   border: 2px;
   margin-top: 15px;
@@ -111,10 +133,10 @@ input {
   cursor: pointer;
 }
 
-p{
-    margin-top : 20px;
-    font-size: 24px;
-    text-align: center;
-    font-family: "Fredoka One", cursive;
+p {
+  margin-top: 20px;
+  font-size: 24px;
+  text-align: center;
+  font-family: "Fredoka One", cursive;
 }
 </style>
