@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="data">
+        <div class="name">2048</div>
       <div class="game-score">
         <h3>Game Score</h3>
         <h2>{{ score }}</h2>
@@ -314,6 +315,12 @@ export default {
   border-radius: 15px;
 }
 
+.name{
+    text-align : center;
+    font-size : 48px;
+    color: grey;
+
+}
 .control {
   margin: 25px;
 }

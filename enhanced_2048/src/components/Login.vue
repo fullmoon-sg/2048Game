@@ -51,7 +51,7 @@ export default {
   height: 400px;
   margin: auto;
   position: absolute;
-  background: rgba(218, 200, 190, 1);
+  background-color: rgba(218, 200, 190, 1);
   border: 2px solid rgba(128, 100, 100, 1);
   padding: 20px;
   box-shadow: 0px 0px 50px 5px black;
@@ -89,11 +89,11 @@ input {
 }
 
 .signIn {
+   background-color: rgba(218, 200, 190, 1);
   color: black;
-  display: inline-block;
+  border: 2px;
   margin-top: 15px;
   text-align: left;
-  text-decoration: none;
   font-size: 13pt;
   cursor: pointer;
 }
