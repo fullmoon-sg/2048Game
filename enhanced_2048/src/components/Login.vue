@@ -3,7 +3,6 @@
     <div class="modal-container" id="modal">
       <div v-if="register">
         <span class="modal-heading">ENTER YOUR DETAILS</span>
-        <form class="form">
           <input
             type="text"
             name="name"
@@ -16,15 +15,13 @@
             placeholder="Your password...Shhhh...."
             v-model="password"
           /><br />
-          <input type="submit" class="btnRegister" value="Register" />
-        </form>
+          <input type="submit" class="btnRegister" value="Register" @click="addPlayer"/>
         <button @click="register = !register" class="signIn">
           Have an account already?
         </button>
       </div>
       <div v-else>
         <span class="modal-heading">ENTER YOUR DETAILS</span>
-        <form class="form">
           <input
             type="text"
             name="name"
@@ -39,7 +36,6 @@
           /><br />
           <input type="submit" class="btnRegister" value="Login" />
           <p>Welcome Back Champion!</p>
-        </form>
         <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
       </div>
     </div>
@@ -59,14 +55,12 @@ export default {
   methods: {
     addPlayer: async function () {
       await axios.post(
-        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/",
+        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add",
         {
-          name: this.name,
-          password: this.password,
-          date: new Date(),
+          "name": this.name,
+          "password": this.password,
         }
       );
-
       this.name = "";
       this.password = "";
       alert("A new champion has been registered");

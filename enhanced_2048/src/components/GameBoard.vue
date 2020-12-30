@@ -194,8 +194,12 @@ export default {
                              this.$set(this.board[i],[j], "");     
                         }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
                             x=true;
-                            this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
+                             this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
                             this.$set(this.board[i],[j],"");
+                            // this.delayslide(()=> {
+                            //     this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
+                            //     this.$set(this.board[i],[j],"");
+                            // })
                         }
                 }
             }  
@@ -219,8 +223,7 @@ export default {
                              this.$set(this.board[j],[i], "");     
                         }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
                             x = true;
-                            this.delaySlide();
-                            this.$set(this.board[k],[i],this.board[k][i] + this.board[j][i]);
+                            this.$set(this.board[k],[i],parseInt(this.board[k][i] + this.board[j][i]));
                             this.$set(this.board[j],[i],"");
                         }
                 }
@@ -229,8 +232,7 @@ export default {
         this.generate_2_or_4();  
       }else{
           this.control = false;
-          alert("You are out of move !!! Restart the game and try again" );
-           
+          alert("You are out of move !!! Restart the game and try again" );     
       }
       return x;
     }, 
@@ -266,11 +268,6 @@ export default {
        this.generate_2_or_4();
        this.control = true;
     },
-
-    delaySlide : function(){
-        let delay = setInterval(() => {clearInterval(delay)}, 5000);  
-    },
-
   }, // end of methods
   computed: {
     score: function () {
