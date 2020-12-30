@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueRouter from 'vue-router';
+import 'css-doodle';
 
 
 Vue.config.productionTip = false

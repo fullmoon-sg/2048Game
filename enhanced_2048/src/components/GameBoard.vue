@@ -5,11 +5,11 @@
         <div id="name">{{sharedData.name}}</div>
       <div class="game-score">
         <h3>Game Score</h3>
-        <h2>{{ score }}</h2>
+        <h2>{{score}}</h2>
       </div>
         <div class="game-score">
         <h3>Best Score</h3>
-        <h2>4</h2>
+        <h2>{{bestScore}}</h2>
       </div>
       <!-- end of Game Score div -->
       <div>
