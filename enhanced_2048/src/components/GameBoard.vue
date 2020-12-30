@@ -311,7 +311,6 @@ export default {
 <style scoped>
 .container {
   background-color: white;
-  margin-top: 50px;
   display: flex;
   font-family: 'Fredoka One', cursive;
 }

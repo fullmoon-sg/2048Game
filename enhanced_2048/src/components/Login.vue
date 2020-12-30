@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div class="modal-container" id="modal">
-      <div v-if="register">
-        <span class="modal-heading">ENTER YOUR DETAILS</span>
+    <div class="login-instruction">
+      <div class="instruction">
+       <h1>Hello World</h1>
+      </div>
+      <div class="modal-container" id="modal">
+        <div v-if="register">
+          <span class="modal-heading">ENTER YOUR DETAILS</span>
           <input
             type="text"
             name="name"
@@ -15,13 +19,18 @@
             placeholder="Your password...Shhhh...."
             v-model="password"
           /><br />
-          <input type="submit" class="btnRegister" value="Register" @click="addPlayer"/>
-        <button @click="register = !register" class="signIn">
-          Have an account already?
-        </button>
-      </div>
-      <div v-else>
-        <span class="modal-heading">ENTER YOUR DETAILS</span>
+          <input
+            type="submit"
+            class="btnRegister"
+            value="Register"
+            @click="addPlayer"
+          />
+          <button @click="register = !register" class="signIn">
+            Have an account already?
+          </button>
+        </div>
+        <div v-else>
+          <span class="modal-heading">ENTER YOUR DETAILS</span>
           <input
             type="text"
             name="name"
@@ -36,7 +45,8 @@
           /><br />
           <input type="submit" class="btnRegister" value="Login" />
           <p>Welcome Back Champion!</p>
-        <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
+          <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +55,6 @@
 <script>
 import axios from "axios";
 export default {
-   
   data: function () {
     return {
       name: "",
@@ -55,12 +64,12 @@ export default {
   },
   methods: {
     addPlayer: async function () {
-      this.$emit('loginName',this.name)
+      this.$emit("loginName", this.name);
       await axios.post(
         "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add",
         {
-          "name": this.name,
-          "password": this.password,
+          name: this.name,
+          password: this.password,
         }
       );
       this.name = "";
@@ -72,10 +81,23 @@ export default {
 </script>
 
 <style scoped>
+.login-instruction {
+  display: inline-block;
+}
+
+.instruction {
+  position: absolute;
+  left: 800px;
+  height: 800px;
+  width : 1000px;
+  border : 1px solid red;
+
+}
+
 #modal {
   position: absolute;
   top: 200px;
-  left: 450px;
+  left: 75px;
 }
 .modal-container {
   width: 450px;
