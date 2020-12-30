@@ -2,7 +2,7 @@
   <div class="container">
     <div class="data">
         <div class="name">2048</div>
-        <div id="name">{{name}}</div>
+        <div id="name">{{sharedData.name}}</div>
       <div class="game-score">
         <h3>Game Score</h3>
         <h2>{{ score }}</h2>

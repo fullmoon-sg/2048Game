@@ -12,7 +12,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="hf in hall_fame" v-bind:key="hf._id" v-bind:bestScore="hf.score">
+                    <tr v-for="hf in sort" v-bind:key="hf._id" v-bind:bestScore="hf.score">
                         <td>Rank</td>
                         <td>{{hf.name}}</td>
                         <td>{{hf.score}}</td>
@@ -36,10 +36,23 @@ export default {
   },
   data: function () {
     return {
-      hall_fame: {},
+      hall_fame: [],
     };
   },
-};
+  computed:{
+     sort : function(){
+         let sortScore = this.hall_fame.slice(0);
+        //  console.log(sortScore[1].score)
+        //  return sortScore
+         sortScore.sort(function(a,b){
+             return b.score - a.score;
+         })
+         return sortScore;
+        
+    
+    }  
+  }    
+}
 </script>
 
 <style scoped>
