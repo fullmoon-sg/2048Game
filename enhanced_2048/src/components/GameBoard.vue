@@ -2,13 +2,14 @@
   <div class="container">
     <div class="data">
         <div class="name">2048</div>
+        <div id="name">{{name}}</div>
       <div class="game-score">
         <h3>Game Score</h3>
         <h2>{{ score }}</h2>
       </div>
         <div class="game-score">
         <h3>Best Score</h3>
-        <h2>{{ bestScore }}</h2>
+        <h2>4</h2>
       </div>
       <!-- end of Game Score div -->
       <div>
@@ -124,7 +125,7 @@
 
 <script>
 export default {
-  props : ['bestScore'],
+  props : ['bestScore','sharedData'],
   data: function () {
     return {
       board: [],  
@@ -323,6 +324,13 @@ export default {
   border-radius: 15px;
 }
 
+#name{
+     text-align : center;
+    font-size : 32px;
+    color: grey;
+
+}
+
 .name{
     text-align : center;
     font-size : 48px;
@@ -336,7 +344,7 @@ export default {
 .game-score {
     background-color:#DACECE;
   top: 50px;
-  padding: 0px 0px 25px 0px;
+  /* padding: 0px 0px 15px 0px; */
   margin : 10px;
   text-align: center;
   border-radius: 10px;
@@ -349,7 +357,7 @@ export default {
   text-align: center;
   height: 50px;
   width: 50px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .left-right {

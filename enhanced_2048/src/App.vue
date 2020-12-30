@@ -12,12 +12,12 @@
         <a class="nav-link" href="#"><router-link to="/Login">Login</router-link></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><router-link to="/GameBoard">GameBoard</router-link></a>
+        <a class="nav-link" href="#"><router-link to='/GameBoard'>GameBoard</router-link></a>
       </li>
     </ul>
   </div>
 </nav>
-      <router-view></router-view>
+      <router-view v-on:giveName="storeName" :sharedData='sharedData'></router-view>
   </div>
 </template>
 
@@ -26,9 +26,22 @@
 export default {
   name: 'App',
   components: {
-        
-
+       
+  },
+  data : function(){
+      return{
+          'sharedData' : {
+                'name' : ""       
+          }
+ 
+      }
+  },
+  methods:{
+      storeName:function(name){
+          this.sharedData.name = name;
+      }
   }
+  
 }
 </script>
 

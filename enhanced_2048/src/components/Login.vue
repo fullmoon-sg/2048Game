@@ -45,6 +45,7 @@
 <script>
 import axios from "axios";
 export default {
+   
   data: function () {
     return {
       name: "",
@@ -54,6 +55,7 @@ export default {
   },
   methods: {
     addPlayer: async function () {
+      this.$emit('giveName',this.name)
       await axios.post(
         "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add",
         {
