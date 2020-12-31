@@ -1,6 +1,6 @@
 <template>
   <div>
-       <h1>Hall of Fame</h1>
+    <h1>Hall of Fame</h1>
     <div>
       <table class="table">
         <thead class="table-header">
@@ -12,8 +12,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(hf,index) in sortScore.slice(0,10)" v-bind:key="hf._id">
-            <td>{{index+1}}</td>
+          <tr v-for="(hf, index) in sortScore.slice(0, 10)" v-bind:key="hf._id">
+            <td>{{ index + 1 }}</td>
             <td>{{ hf.name }}</td>
             <td>{{ hf.score }}</td>
             <td>{{ hf.date }}</td>
@@ -35,16 +35,24 @@
 <script>
 import axios from "axios";
 export default {
+     data: function () {
+    return {
+      hall_fame: [],
+    };
+  },
   created: async function () {
     let response = await axios.get(
       "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/"
     );
     this.hall_fame = response.data;
+    this.extractHighScore();
   },
-  data: function () {
-    return {
-      hall_fame: [],
-    };
+  methods : {
+  extractHighScore: function(){
+        let scores = this.sortScore
+        let highScore = scores[0].score;
+        this.$emit('bestScore', highScore);
+  },
   },
   computed: {
     sortScore: function () {
@@ -52,11 +60,10 @@ export default {
       sortScore.sort(function (a, b) {
         return b.score - a.score;
       });
-      this.$emit('bestScore', sortScore.score); 
       return sortScore;
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped>

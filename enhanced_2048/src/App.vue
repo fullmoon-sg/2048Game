@@ -36,7 +36,7 @@ export default {
   data: function () {
     return {
       sharedData: {
-        name: "",
+        name: "john doe",
         bestScore:""
       },
     };
