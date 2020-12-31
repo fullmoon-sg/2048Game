@@ -2,8 +2,15 @@
   <div>
     <div class="login-instruction">
       <div class="instruction">
-        <h1>Hello World</h1>
+        <h2>How to Play?</h2>
       </div>
+      <div class="instruction-text-left">
+       <ul>
+       <li>Please procee to login or register for a new account to play</li>
+       <li> You can also choose to play without login or registering for a<br>
+            new account. However your score will not be stored in the <br> database</li>
+        </ul>
+        </div>
       <div class="modal-container" id="modal">
         <div v-if="register">
           <span class="modal-heading">ENTER YOUR DETAILS</span>
@@ -118,6 +125,14 @@ export default {
   border: 1px solid red;
 }
 
+.instruction-text-left{
+    margin: 20px 0px 100px 0px;
+
+  font-size: 24px;
+  text-align: left;
+  font-family: "Fredoka One", cursive;
+}
+
 #modal {
   position: absolute;
   top: 200px;
@@ -126,7 +141,7 @@ export default {
 .modal-container {
   width: 450px;
   height: 400px;
-  margin: auto;
+  margin: 75px 100px 0px 50px;
   position: absolute;
   background-color: rgba(218, 200, 190, 1);
   border: 2px solid rgba(128, 100, 100, 1);
