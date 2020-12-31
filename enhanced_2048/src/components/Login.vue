@@ -2,7 +2,7 @@
   <div>
     <div class="login-instruction">
       <div class="instruction">
-       <h1>Hello World</h1>
+        <h1>Hello World</h1>
       </div>
       <div class="modal-container" id="modal">
         <div v-if="register">
@@ -43,7 +43,12 @@
             placeholder="Your password...Shhhh...."
             v-model="password"
           /><br />
-          <input type="submit" class="btnRegister" value="Login" @click="logIn"/>
+          <input
+            type="submit"
+            class="btnRegister"
+            value="Login"
+            @click="logInPlayer"
+          />
           <p>Welcome Back Champion!</p>
           <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
         </div>
@@ -70,21 +75,33 @@ export default {
         {
           name: this.name,
           password: this.password,
-          playersRecord : []
+          playersRecord: [],
         }
       );
       this.name = "";
       this.password = "";
       alert("A new champion has been registered");
+      this.$router.push('GameBoard') 
+    },
+    logInPlayer: async function () {
+      let response = await axios.get(
+        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add"
+      );
+      this.playersRecord = response.data;
+     
+      for (let record of this.playersRecord) {
+        if (this.name === record.name && this.password === record.password)
+        {
+          this.$emit('loginName',this.name);
+          alert("You have successfully login.")
+          this.$router.push('GameBoard') 
+          return true;
+        }
+        
+      }
+      alert("Your record cannot be found")
     },
   },
-  logIn : async function() {
-      let response = await axios.get(
-      "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add"
-       );
-    this.playersRecord = response.data;
-    console.log("Work in progress")
-  }
 };
 </script>
 
@@ -97,9 +114,8 @@ export default {
   position: absolute;
   left: 800px;
   height: 800px;
-  width : 1000px;
-  border : 1px solid red;
-
+  width: 1000px;
+  border: 1px solid red;
 }
 
 #modal {
