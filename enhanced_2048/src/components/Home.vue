@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Hall of Fame</h1>
+    <h1>Hall of Fame (TOP 10)</h1>  
     <div>
       <table class="table">
         <thead class="table-header">
@@ -8,7 +8,6 @@
             <th>Rank</th>
             <th>Name</th>
             <th>Points</th>
-            <th>Date</th>
           </tr>
         </thead>
         <tbody>
@@ -16,7 +15,6 @@
             <td>{{ index + 1 }}</td>
             <td>{{ hf.name }}</td>
             <td>{{ hf.score }}</td>
-            <td>{{ hf.date }}</td>
           </tr>
         </tbody>
       </table>
@@ -31,7 +29,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 export default {
@@ -68,6 +65,8 @@ export default {
 
 <style scoped>
 h1 {
+    margin : 15px;
+    padding :10px;
   text-align: center;
   font-family: "Fredoka One", cursive;
 }

@@ -1,46 +1,26 @@
 <template>
   <div class="container">
     <div class="data">
-        <div class="name">2048</div>
-        <div id="name">{{sharedData.name}}</div>
+      <div class="name">2048</div>
+      <div id="name">{{ sharedData.name }}</div>
       <div class="game-score">
         <h3>Game Score</h3>
-        <h2>{{score}}</h2>
+        <h2>{{ score }}</h2>
       </div>
-        <div class="game-score">
+      <div class="game-score">
         <h3>Best Score</h3>
-        <h2>{{sharedData.bestScore}}</h2>
+        <h2>{{ sharedData.bestScore }}</h2>
       </div>
       <!-- end of Game Score div -->
       <div>
-      <div class="control" v-if="control">
-        <div class="top" @click="up" style="cursor : pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            fill="currentColor"
-            class="bi bi-arrow-up-square"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-            />
-            <path
-              fill-rule="evenodd"
-              d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"
-            />
-          </svg>
-        </div>
-        <div class="left-right">
-          <div class="left" @click="left" style="cursor : pointer">
+        <div class="control" v-if="control">
+          <div class="top" @click="up" style="cursor: pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
               height="50"
               fill="currentColor"
-              class="bi bi-arrow-left-square"
+              class="bi bi-arrow-up-square"
               viewBox="0 0 16 16"
             >
               <path
@@ -49,17 +29,57 @@
               />
               <path
                 fill-rule="evenodd"
-                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"
+                d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"
               />
             </svg>
           </div>
-          <div class="right" @click="right" style="cursor : pointer">
+          <div class="left-right">
+            <div class="left" @click="left" style="cursor: pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-arrow-left-square"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+            </div>
+            <div class="right" @click="right" style="cursor: pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-arrow-right-square"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="down" @click="down" style="cursor: pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
               height="50"
               fill="currentColor"
-              class="bi bi-arrow-right-square"
+              class="bi bi-arrow-down-square"
               viewBox="0 0 16 16"
             >
               <path
@@ -68,33 +88,13 @@
               />
               <path
                 fill-rule="evenodd"
-                d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"
+                d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
               />
             </svg>
           </div>
         </div>
-        <div class="down" @click="down" style="cursor : pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            fill="currentColor"
-            class="bi bi-arrow-down-square"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-            />
-            <path
-              fill-rule="evenodd"
-              d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
-            />
-          </svg>
-        </div>
-      </div>
-       <div class="control" v-else>
-        <p> Click "Restart" to begin a new Game</p>
+        <div class="control" v-else>
+          <p>Click "Restart" to begin a new Game</p>
         </div>
       </div>
       <!-- end of control div -->
@@ -102,8 +102,13 @@
         <div class="reset" @click="restart">
           <button class="btn btn-primary">Restart</button>
         </div>
-        <div class="back">
-          <button class="btn btn-primary">Back Menu</button>
+        <div>
+        <div class="Power" @click="power" v-if="powerUse" >
+          <button class="btn btn-primary">Power 2048</button>
+        </div>
+         <div class="Power" v-else>
+          <button class="btn btn-primary">Deactived</button>
+        </div>
         </div>
       </div>
       <!-- end of reset div -->
@@ -119,156 +124,194 @@
           </tr>
         </table>
       </div>
-    </div><!-- end of draw broad div -->
-  </div><!-- end of container div -->
+    </div>
+    <!-- end of draw broad div -->
+  </div>
+  <!-- end of container div -->
 </template>
-
 <script>
 import axios from "axios";
 export default {
-  props : ['sharedData'],
+  props: ["sharedData"],
   data: function () {
     return {
-      board: [],  
-      control : true 
+      board: [],
+      control: true,
+      powerUse : true
     };
   },
   methods: {
-     up : function(){ 
-         let x = false;
-         if (this.endGame()){
-        for(let i =0; i<4; i++){
-            for (let j=1; j<=3;j++){
-                for(let k=0; k<j;k++){
-                        if((this.board[k][i] === "") && (this.board[j][i] !== "")){
-                            x = true;
-                             this.$set(this.board[k],[i], this.board[j][i]);
-                             this.$set(this.board[j],[i], "");     
-                        }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
-                            x = true;
-                            this.$set(this.board[k],[i],this.board[k][i] + this.board[j][i]);
-                            this.$set(this.board[j],[i],"");
-                        }
-                }
-            }  
-        }   
-        this.generate_2_or_4(); 
-         } else {
-             this.control = false;
-             this.updateScore();
-            alert("You are out of move !!! Restart the game and try again" );  
-    }
-    return x; 
-    },  
-    left : function(){ 
-        let x = false;
-    if(this.endGame()){
-        for(let i =0; i<4; i++){
-            for (let j=1; j<=3;j++){
-                for(let k=0; k<j;k++){
-                        if((this.board[i][k] === "") && (this.board[i][j] !== "")){
-                            x =true;
-                             this.$set(this.board[i],[k], this.board[i][j]);
-                             this.$set(this.board[i],[j], "");     
-                        }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
-                            x = true;
-                            this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
-                            this.$set(this.board[i],[j],"");                      
-                        }
-                }
-            }  
-        }   
-        this.generate_2_or_4();  
-    }else{
-         this.control = false;
-         this.updateScore();
-          alert("You are out of move !!! Restart the game and try again" );  
-    }
-    return x; 
-    }, 
-     right : function(){ 
-         let x = false;
-         if(this.endGame()){
-        for(let i =0; i<4; i++){
-            for (let j=2; j>=0;j--){
-                for(let k=3; k>j;k--){
-                        if((this.board[i][k] === "") && (this.board[i][j] !== "")){
-                            x = true;
-                             this.$set(this.board[i],[k], this.board[i][j]);
-                             this.$set(this.board[i],[j], "");     
-                        }else if((this.board[i][k] !== "") && (this.board[i][k] === this.board[i][j])){
-                            x=true;
-                             this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
-                            this.$set(this.board[i],[j],"");
-                        }
-                }
-            }  
-        }   
-        this.generate_2_or_4(); 
-         } else{
-             this.control = false;   
-             this.updateScore();
-          alert("You are out of move !!! Restart the game and try again" );   
-             
+    up: function () {
+      let x = false;
+      if (this.endGame()) {
+        for (let i = 0; i < 4; i++) {
+          for (let j = 1; j <= 3; j++) {
+            for (let k = 0; k < j; k++) {
+              if (this.board[k][i] === "" && this.board[j][i] !== "") {
+                x = true;
+                this.$set(this.board[k], [i], this.board[j][i]);
+                this.$set(this.board[j], [i], "");
+              } else if (
+                this.board[k][i] !== "" &&
+                this.board[k][i] === this.board[j][i]
+              ) {
+                x = true;
+                this.$set(
+                  this.board[k],
+                  [i],
+                  this.board[k][i] + this.board[j][i]
+                );
+                this.$set(this.board[j], [i], "");
+              }
+            }
+          }
+        }
+        this.generate_2_or_4();
+      } else {
+        this.control = false;
+        this.updateScore();
+        alert("You are out of move !!! Restart the game and try again");
       }
       return x;
-    }, 
-    down : function(){ 
-        let x = false;
-        if(this.endGame()){
-        for(let i =0; i<4; i++){
-            for (let j=2; j>=0;j--){
-                for(let k=3; k>j;k--){
-                        if((this.board[k][i] === "") && (this.board[j][i] !== "")){
-                            x = true;
-                             this.$set(this.board[k],[i], this.board[j][i]);
-                             this.$set(this.board[j],[i], "");     
-                        }else if((this.board[k][i] !== "") && (this.board[k][i] === this.board[j][i])){
-                            x = true;
-                            this.$set(this.board[k],[i],parseInt(this.board[k][i] + this.board[j][i]));
-                            this.$set(this.board[j],[i],"");
-                        }
-                }
-            }  
-        }   
-        this.generate_2_or_4();  
-      }else{
-          this.control = false;
-          this.updateScore();
-          alert("You are out of move !!! Restart the game and try again" );     
+    },
+    left: function () {
+      let x = false;
+      if (this.endGame()) {
+        for (let i = 0; i < 4; i++) {
+          for (let j = 1; j <= 3; j++) {
+            for (let k = 0; k < j; k++) {
+              if (this.board[i][k] === "" && this.board[i][j] !== "") {
+                x = true;
+                this.$set(this.board[i], [k], this.board[i][j]);
+                this.$set(this.board[i], [j], "");
+              } else if (
+                this.board[i][k] !== "" &&
+                this.board[i][k] === this.board[i][j]
+              ) {
+                x = true;
+                this.$set(
+                  this.board[i],
+                  [k],
+                  this.board[i][k] + this.board[i][j]
+                );
+                this.$set(this.board[i], [j], "");
+              }
+            }
+          }
+        }
+        this.generate_2_or_4();
+      } else {
+        this.control = false;
+        this.updateScore();
+        alert("You are out of move !!! Restart the game and try again");
       }
       return x;
-    }, 
-    generate_2_or_4 : function(){
+    },
+    right: function () {
+      let x = false;
+      if (this.endGame()) {
+        for (let i = 0; i < 4; i++) {
+          for (let j = 2; j >= 0; j--) {
+            for (let k = 3; k > j; k--) {
+              if (this.board[i][k] === "" && this.board[i][j] !== "") {
+                x = true;
+                this.$set(this.board[i], [k], this.board[i][j]);
+                this.$set(this.board[i], [j], "");
+              } else if (
+                this.board[i][k] !== "" &&
+                this.board[i][k] === this.board[i][j]
+              ) {
+                x = true;
+                this.$set(
+                  this.board[i],
+                  [k],
+                  this.board[i][k] + this.board[i][j]
+                );
+                this.$set(this.board[i], [j], "");
+              }
+            }
+          }
+        }
+        this.generate_2_or_4();
+      } else {
+        this.control = false;
+        this.updateScore();
+        alert("You are out of move !!! Restart the game and try again");
+      }
+      return x;
+    },
+    down: function () {
+      let x = false;
+      if (this.endGame()) {
+        for (let i = 0; i < 4; i++) {
+          for (let j = 2; j >= 0; j--) {
+            for (let k = 3; k > j; k--) {
+              if (this.board[k][i] === "" && this.board[j][i] !== "") {
+                x = true;
+                this.$set(this.board[k], [i], this.board[j][i]);
+                this.$set(this.board[j], [i], "");
+              } else if (
+                this.board[k][i] !== "" &&
+                this.board[k][i] === this.board[j][i]
+              ) {
+                x = true;
+                this.$set(
+                  this.board[k],
+                  [i],
+                  parseInt(this.board[k][i] + this.board[j][i])
+                );
+                this.$set(this.board[j], [i], "");
+              }
+            }
+          }
+        }
+        this.generate_2_or_4();
+      } else {
+        this.control = false;
+        this.updateScore();
+        alert("You are out of move !!! Restart the game and try again");
+      }
+      return x;
+    },
+    generate_2_or_4: function () {
+      let r = Math.floor(Math.random() * 4);
+      let c = Math.floor(Math.random() * 4);
+      let random_2_4 = Math.floor(Math.random() > 0.6 ? 2 : 4);
+      if (this.board[r][c] === "") {
+        this.$set(this.board[r], [c], parseInt(random_2_4));
+      } else {
+        this.generate_2_or_4();
+      }
+    },
+    endGame: function () {
+      let end = false;
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+          if (this.board[i][j] === "") {
+            end = true;
+          }
+        }
+      }
+      return end;
+    },
+    restart: function () {
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+          this.board[i][j] = "";
+        }
+      }
+      this.score;
+      this.generate_2_or_4();
+      this.control = true;
+      this.powerUse = true;
+    },
+    power : function(){ 
+         for (let i = 0; i < 3; i++) {
         let r = Math.floor(Math.random() * 4);
         let c = Math.floor(Math.random() * 4);
-        let random_2_4 = Math.floor(Math.random() > 0.6 ? 2 : 4);
-        if(this.board[r][c] === ""){
-             this.$set(this.board[r],[c], parseInt(random_2_4))
-        }else{
-             this.generate_2_or_4();
-       }         
-    },
-    endGame : function(){
-        let end = false;
-        for (let i=0; i < 4; i++){
-            for(let j=0; j<4; j++){
-                if(this.board[i][j] === ""){
-                    end=true;
-                }
-            }
-        }
-        return end;
-    },
-    restart : function(){
-        for (let i=0; i < 4; i++){
-            for(let j=0; j<4; j++){
-                this.board[i][j] = ""
-                }
-        }
-       this.score;
-       this.generate_2_or_4();
-       this.control = true;
+        this.$set(this.board[r], [c], "");
+         }
+         this.powerUse = false;
     },
     updateScore: async function () {
       await axios.post(
@@ -279,12 +322,12 @@ export default {
         }
       );
       this.name = "";
-      this.score= "";
+      this.score = "";
     },
   }, // end of methods
   computed: {
     score: function () {
-      let scores=0;
+      let scores = 0;
       if (this.board.length > 0) {
         for (let i = 0; i < 4; i++) {
           for (let j = 0; j < 4; j++) {
@@ -302,20 +345,19 @@ export default {
   created: function () {
     let gameBoard = [];
     for (let i = 0; i < 4; i++) {
-       let row = [];
-    for (let j = 0; j < 4; j++) {
+      let row = [];
+      for (let j = 0; j < 4; j++) {
         row.push("");
       }
-      gameBoard.push(row)
-      }   
-      this.board = gameBoard;
-      
+      gameBoard.push(row);
+    }
+    this.board = gameBoard;
+
     this.$set(
       this.board[Math.floor(Math.random() * 4)],
       Math.floor(Math.random() * 4),
       Math.random() > 0.2 ? 2 : 4
     );
-  
   }, // end of created
 }; // end of export default
 </script>
@@ -324,47 +366,45 @@ export default {
 .container {
   background-color: white;
   display: flex;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
 }
 
 .data {
-  background-color: #C6B6AA;
+  background-color: #c6b6aa;
   margin-top: 100px;
   width: 250px;
   height: 650px;
   border-radius: 15px;
 }
 
-#name{
-     text-align : center;
-    font-size : 32px;
-    color: grey;
-
+#name {
+  text-align: center;
+  font-size: 32px;
+  color: grey;
 }
 
-.name{
-    text-align : center;
-    font-size : 48px;
-    color: grey;
-
+.name {
+  text-align: center;
+  font-size: 48px;
+  color: grey;
 }
 .control {
   margin: 25px;
 }
 
 .game-score {
-    background-color:#DACECE;
+  background-color: #dacece;
   top: 50px;
   /* padding: 0px 0px 15px 0px; */
-  margin : 10px;
+  margin: 10px;
   text-align: center;
   border-radius: 10px;
-  color : white;
+  color: white;
 }
 
 .top {
-   position : relative;
-    left : 75px;
+  position: relative;
+  left: 75px;
   text-align: center;
   height: 50px;
   width: 50px;
@@ -389,8 +429,8 @@ export default {
 }
 
 .down {
-    position : relative;
-    left : 75px;
+  position: relative;
+  left: 75px;
   text-align: center;
   height: 50px;
   width: 50px;
@@ -398,7 +438,7 @@ export default {
 }
 
 .draw-broad {
-  background-color: #C6B6AA;
+  background-color: #c6b6aa;
   width: 750px;
   height: 750px;
   margin: 50px;
@@ -409,17 +449,17 @@ export default {
 td {
   width: 160px;
   height: 160px;
-  background-color:#DACECE;
+  background-color: #dacece;
   border-radius: 15px;
   float: left;
   padding: 20px;
   margin: 11px;
-text-align: center;
+  text-align: center;
 }
 
 .row-col-text {
   font-size: 72px;
- color :grey;
+  color: grey;
 }
 
 .menu {
@@ -431,10 +471,16 @@ text-align: center;
 .reset {
   position: relative;
   left: 10px;
+   box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
+    border: 1px solid orange;
 }
 
-.back {
+.Power {
   position: relative;
-  left: 40px;
+  left: 30px;
+  color: #333;
+    box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
+    border: 1px solid orange;
+
 }
 </style>
