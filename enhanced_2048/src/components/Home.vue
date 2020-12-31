@@ -12,8 +12,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="hf in sortScore" v-bind:key="hf._id">
-            <td>Rank</td>
+          <tr v-for="(hf,index) in sortScore" v-bind:key="hf._id">
+            <td>{{index+1}}</td>
             <td>{{ hf.name }}</td>
             <td>{{ hf.score }}</td>
             <td>{{ hf.date }}</td>

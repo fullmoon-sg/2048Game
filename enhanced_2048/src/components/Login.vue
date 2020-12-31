@@ -43,7 +43,7 @@
             placeholder="Your password...Shhhh...."
             v-model="password"
           /><br />
-          <input type="submit" class="btnRegister" value="Login" />
+          <input type="submit" class="btnRegister" value="Login" @click="logIn"/>
           <p>Welcome Back Champion!</p>
           <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
         </div>
@@ -70,6 +70,7 @@ export default {
         {
           name: this.name,
           password: this.password,
+          playersRecord : []
         }
       );
       this.name = "";
@@ -77,6 +78,13 @@ export default {
       alert("A new champion has been registered");
     },
   },
+  logIn : async function() {
+      let response = await axios.get(
+      "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add"
+       );
+    this.playersRecord = response.data;
+    console.log("Work in progress")
+  }
 };
 </script>
 
