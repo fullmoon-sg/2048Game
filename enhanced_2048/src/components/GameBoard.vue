@@ -9,7 +9,7 @@
       </div>
         <div class="game-score">
         <h3>Best Score</h3>
-        <h2>{{bestScore}}</h2>
+        <h2>{{sharedData.bestScore}}</h2>
       </div>
       <!-- end of Game Score div -->
       <div>
@@ -125,7 +125,7 @@
 
 <script>
 export default {
-  props : ['bestScore','sharedData'],
+  props : ['sharedData'],
   data: function () {
     return {
       board: [],  

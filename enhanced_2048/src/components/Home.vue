@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Hall of Fame</h1>
+       <h1>Hall of Fame</h1>
     <div>
       <table class="table">
         <thead class="table-header">
@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(hf,index) in sortScore" v-bind:key="hf._id">
+          <tr v-for="(hf,index) in sortScore.slice(0,10)" v-bind:key="hf._id">
             <td>{{index+1}}</td>
             <td>{{ hf.name }}</td>
             <td>{{ hf.score }}</td>
@@ -52,6 +52,7 @@ export default {
       sortScore.sort(function (a, b) {
         return b.score - a.score;
       });
+      this.$emit('bestScore', sortScore.score); 
       return sortScore;
     },
   },
@@ -61,6 +62,7 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+  font-family: "Fredoka One", cursive;
 }
 
 .table {

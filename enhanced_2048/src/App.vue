@@ -23,8 +23,8 @@
       </div>
     </nav>
     <router-view
-      v-on:loginName="storeName"
-      :sharedData="sharedData"
+      v-on:loginName="storeName" :sharedData="sharedData"
+      v-on:bestScore = "storeTopScore" 
     ></router-view>
   </div>
 </template>
@@ -37,6 +37,7 @@ export default {
     return {
       sharedData: {
         name: "",
+        bestScore:""
       },
     };
   },
@@ -44,6 +45,9 @@ export default {
     storeName: function (name) {
       this.sharedData.name = name;
     },
+    storeTopScore : function(bestScore){
+        this.sharedData.bestScore = bestScore;
+    }
   },
 };
 </script>
