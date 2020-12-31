@@ -124,6 +124,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props : ['sharedData'],
   data: function () {
@@ -154,7 +155,8 @@ export default {
         this.generate_2_or_4(); 
          } else {
              this.control = false;
-          alert("You are out of move !!! Restart the game and try again" );  
+             this.updateScore();
+            alert("You are out of move !!! Restart the game and try again" );  
     }
     return x; 
     },  
@@ -178,8 +180,9 @@ export default {
         }   
         this.generate_2_or_4();  
     }else{
+         this.control = false;
+         this.updateScore();
           alert("You are out of move !!! Restart the game and try again" );  
-          this.control = false;
     }
     return x; 
     }, 
@@ -197,18 +200,16 @@ export default {
                             x=true;
                              this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
                             this.$set(this.board[i],[j],"");
-                            // this.delayslide(()=> {
-                            //     this.$set(this.board[i],[k],this.board[i][k] + this.board[i][j]);
-                            //     this.$set(this.board[i],[j],"");
-                            // })
                         }
                 }
             }  
         }   
         this.generate_2_or_4(); 
          } else{
+             this.control = false;   
+             this.updateScore();
           alert("You are out of move !!! Restart the game and try again" );   
-          this.control = false;      
+             
       }
       return x;
     }, 
@@ -233,6 +234,7 @@ export default {
         this.generate_2_or_4();  
       }else{
           this.control = false;
+          this.updateScore();
           alert("You are out of move !!! Restart the game and try again" );     
       }
       return x;
@@ -245,8 +247,7 @@ export default {
              this.$set(this.board[r],[c], parseInt(random_2_4))
         }else{
              this.generate_2_or_4();
-       } 
-           
+       }         
     },
     endGame : function(){
         let end = false;
@@ -268,6 +269,17 @@ export default {
        this.score;
        this.generate_2_or_4();
        this.control = true;
+    },
+    updateScore: async function () {
+      await axios.post(
+        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/",
+        {
+          name: this.sharedData.name,
+          score: this.score,
+        }
+      );
+      this.name = "";
+      this.score= "";
     },
   }, // end of methods
   computed: {
