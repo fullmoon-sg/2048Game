@@ -1,6 +1,28 @@
 <template>
   <div class="box">
-    <div class="gif"></div>
+    <div class="gif">
+      <div v-if="score < 20">
+        <img src="../components/images/no_audience.gif" />
+      </div>
+      <div v-else-if="score >= 20 && score < 50">
+        <img src="../components/images/little_audience.gif" />
+      </div>
+      <div v-else-if="score >= 50 && score < 100">
+        <img src="../components/images/moderate_audience.gif" />
+      </div>
+      <div v-else-if="score >= 100 && score < 150">
+        <img src="../components/images/crowded.gif" />
+      </div>
+      <div v-else-if="score >= 150 && score < 200">
+        <img src="../components/images/huge_crowd.gif" />
+      </div>
+      <div v-else-if="score >= 200 && score < 250">
+        <img src="../components/images/huge1_crowd.gif" />
+      </div>
+      <div v-else-if="score >= 250">
+        <img src="../components/images/huge2_crowd.gif" />
+      </div>
+    </div>
     <div class="data">
       <div class="name">2048</div>
       <div id="name">{{ sharedData.name }}</div>
@@ -11,7 +33,8 @@
       <div class="game-score">
         <h3>Best Score</h3>
         <h2>{{ sharedData.bestScore }}</h2>
-      </div> <!-- end of Game Score div -->
+      </div>
+      <!-- end of Game Score div -->
       <div>
         <div class="control" v-if="control">
           <div
@@ -389,14 +412,16 @@ export default {
 }
 
 .gif {
-  width: 200px;
-  height: 800px;
-  border: 2px solid red;
+  position: absolute;
+  top: 350px;
+  left: 35px;
+  width: 450px;
+  height: 250px;
 }
 
 .data {
   position: absolute;
-  left: 550px;
+  left: 575px;
   background-color: #c6b6aa;
   margin-top: 100px;
   width: 325px;
@@ -459,11 +484,11 @@ export default {
 }
 
 .down {
-    position: absolute;
-    margin:0px;
+  position: absolute;
+  margin: 0px;
   width: 80px;
   left: 90px;
-  height:70px;
+  height: 70px;
 }
 
 .btn3d.btn-info {
