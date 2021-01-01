@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="box">
+    <div class="gif"></div>
     <div class="data">
       <div class="name">2048</div>
       <div id="name">{{ sharedData.name }}</div>
@@ -10,11 +11,14 @@
       <div class="game-score">
         <h3>Best Score</h3>
         <h2>{{ sharedData.bestScore }}</h2>
-      </div>
-      <!-- end of Game Score div -->
+      </div> <!-- end of Game Score div -->
       <div>
         <div class="control" v-if="control">
-          <div class="top" @click="up" style="cursor: pointer">
+          <div
+            class="top btn btn-info btn-lg btn3d"
+            @click="up"
+            style="cursor: pointer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -34,7 +38,11 @@
             </svg>
           </div>
           <div class="left-right">
-            <div class="left" @click="left" style="cursor: pointer">
+            <div
+              class="left btn btn-info btn-lg btn3d"
+              @click="left"
+              style="cursor: pointer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
@@ -53,7 +61,11 @@
                 />
               </svg>
             </div>
-            <div class="right" @click="right" style="cursor: pointer">
+            <div
+              class="right btn btn-info btn-lg btn3d"
+              @click="right"
+              style="cursor: pointer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
@@ -73,7 +85,11 @@
               </svg>
             </div>
           </div>
-          <div class="down" @click="down" style="cursor: pointer">
+          <div
+            class="down btn btn-info btn-lg btn3d"
+            @click="down"
+            style="cursor: pointer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -100,15 +116,15 @@
       <!-- end of control div -->
       <div class="menu">
         <div class="reset" @click="restart">
-          <button class="btn btn-primary">Restart</button>
+          <button class="btn btn-danger btn-lg btn3d">Restart</button>
         </div>
         <div>
-        <div class="Power" @click="power" v-if="powerUse" >
-          <button class="btn btn-primary">Power 2048</button>
-        </div>
-         <div class="Power" v-else>
-          <button class="btn btn-primary">Deactived</button>
-        </div>
+          <div class="Power" @click="power" v-if="powerUse">
+            <button class="btn btn-magick btn-lg btn3d">Power 2048</button>
+          </div>
+          <div class="Power" v-else>
+            <button class="btn btn-magick btn-lg btn3d">Deactived</button>
+          </div>
         </div>
       </div>
       <!-- end of reset div -->
@@ -137,7 +153,7 @@ export default {
     return {
       board: [],
       control: true,
-      powerUse : true
+      powerUse: true,
     };
   },
   methods: {
@@ -305,13 +321,13 @@ export default {
       this.control = true;
       this.powerUse = true;
     },
-    power : function(){ 
-         for (let i = 0; i < 3; i++) {
+    power: function () {
+      for (let i = 0; i < 3; i++) {
         let r = Math.floor(Math.random() * 4);
         let c = Math.floor(Math.random() * 4);
         this.$set(this.board[r], [c], "");
-         }
-         this.powerUse = false;
+      }
+      this.powerUse = false;
     },
     updateScore: async function () {
       await axios.post(
@@ -363,16 +379,27 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  background-color: white;
+.box {
+  margin: 0px;
+  background-color: rgba(248, 233, 248, 1);
   display: flex;
   font-family: "Fredoka One", cursive;
+  width: 1500px;
+  height: 800px;
+}
+
+.gif {
+  width: 200px;
+  height: 800px;
+  border: 2px solid red;
 }
 
 .data {
+  position: absolute;
+  left: 550px;
   background-color: #c6b6aa;
   margin-top: 100px;
-  width: 250px;
+  width: 325px;
   height: 650px;
   border-radius: 15px;
 }
@@ -388,8 +415,14 @@ export default {
   font-size: 48px;
   color: grey;
 }
+
 .control {
   margin: 25px;
+  height: 225px;
+  width: 250px;
+  position: absolute;
+  top: 315px;
+  left: 15px;
 }
 
 .game-score {
@@ -403,17 +436,14 @@ export default {
 }
 
 .top {
-  position: relative;
-  left: 75px;
-  text-align: center;
-  height: 50px;
-  width: 50px;
-  margin-top: 50px;
+  left: 80px;
 }
 
 .left-right {
+  position: absolute;
+  top: 75px;
+  left: 0px;
   display: inline-flex;
-  left: 0;
 }
 
 .left {
@@ -429,19 +459,33 @@ export default {
 }
 
 .down {
-  position: relative;
-  left: 75px;
-  text-align: center;
-  height: 50px;
-  width: 50px;
-  margin: 0px;
+    position: absolute;
+    margin:0px;
+  width: 80px;
+  left: 90px;
+  height:70px;
+}
+
+.btn3d.btn-info {
+  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #348fd2, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #39b3d7;
+}
+
+.btn3d.btn-info:active,
+.btn3d.btn-info.active {
+  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #39b3d7;
 }
 
 .draw-broad {
+  position: absolute;
+  right: 150px;
   background-color: #c6b6aa;
   width: 750px;
   height: 750px;
-  margin: 50px;
+  margin: 50px 25px 25px;
   padding: 10px;
   border-radius: 10px;
 }
@@ -463,24 +507,68 @@ td {
 }
 
 .menu {
+  position: absolute;
+  top: 550px;
   display: flex;
-  margin: 50px 0px 0px 0px;
+  margin: 5px 0px 0px 0px;
   padding: 5px;
 }
 
 .reset {
   position: relative;
   left: 10px;
-   box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
-    border: 1px solid orange;
+}
+
+.btn3d.btn-danger {
+  box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #aa0000, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #d73814;
+}
+
+.btn3d.btn-danger:active,
+.btn3d.btn-danger.active {
+  box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #d73814;
 }
 
 .Power {
   position: relative;
-  left: 30px;
-  color: #333;
-    box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
-    border: 1px solid orange;
+  left: 50px;
+}
 
+.btn3d {
+  position: relative;
+  top: -6px;
+  border: 0;
+  transition: all 40ms linear;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.btn3d:active:focus,
+.btn3d:focus:hover,
+.btn3d:focus {
+  outline: medium none;
+}
+
+.btn3d:active,
+.btn3d.active {
+  top: 2px;
+}
+.btn3d.btn-magick {
+  color: #fff;
+  box-shadow: 0 0 0 1px #9a00cd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #9823d5, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #bb39d7;
+}
+
+.btn3d.btn-magick:active,
+.btn3d.btn-magick.active {
+  box-shadow: 0 0 0 1px #9a00cd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #bb39d7;
 }
 </style>
