@@ -208,8 +208,10 @@ export default {
         this.generate_2_or_4();
       } else {
         this.control = false;
-        this.updateScore();
         alert("You are out of move !!! Restart the game and try again");
+         if ( this.name !== "John Doe")
+         {this.updateScore();
+         }
       }
       return x;
     },
@@ -241,8 +243,10 @@ export default {
         this.generate_2_or_4();
       } else {
         this.control = false;
-        this.updateScore();
         alert("You are out of move !!! Restart the game and try again");
+        if ( this.name !== "John Doe")
+         {this.updateScore();
+         }
       }
       return x;
     },
@@ -274,8 +278,10 @@ export default {
         this.generate_2_or_4();
       } else {
         this.control = false;
-        this.updateScore();
         alert("You are out of move !!! Restart the game and try again");
+        if ( this.name !== "John Doe")
+         {this.updateScore();
+         }
       }
       return x;
     },
@@ -307,8 +313,10 @@ export default {
         this.generate_2_or_4();
       } else {
         this.control = false;
-        this.updateScore();
         alert("You are out of move !!! Restart the game and try again");
+        if ( this.name !== "John Doe")
+         {this.updateScore();
+         }
       }
       return x;
     },
