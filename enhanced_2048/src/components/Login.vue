@@ -2,15 +2,25 @@
   <div>
     <div class="login-instruction">
       <div class="instruction">
-        <h2>How to Play?</h2>
+        <h2>The Enhanced 2048</h2>
+        <p>What is original 2048 ? <br><br>The original 2048 is a game where you combine numbered tiles in order to gain a 
+            higher numbered tile. You start with one random number of 2 or 4 on a piece of tile. Your goal in the game is to
+            gain scoring through combining the tiles so that it will add up the score to achieve the number 2048. </p>
+        <p>What is enhanced 2048 <br><br>In "Enhanced 2048", we re-invented the game to make it simple to play. In the original
+        2048, you cannot combine two tiles when there is a different numbering tile in-between it. However, in "Enhanced 2048", you
+        can. Simple right? In addition, we created a "Power 2048" button that can use it once per game. So, you may wondering what 
+        is "Power 2048" ? By using "Power 2048", the game master will randomly removing up to 3 numbering tiles instantly. This
+        features is extremly useful when you are left with one or two empty tiles before you are running out of tile to play.
+        So what is the down-side? Well, while the game mastering randomly remove the numbering tiles, the system will deduct the 
+        numbering tile score as well. So, use it wisely gamer.</p>
+        <p>How to control ? </p>
       </div>
       <div class="instruction-text-left">
         <ul>
           <li>Please procee to login or register for a new account to play</li>
           <li>
             You can also choose to play without login or registering for a<br />
-            new account. However your score will not be stored in the <br />
-            database
+            new account. However, your score will not be enrolled in <br />hall of fame. 
           </li>
         </ul>
       </div>
@@ -59,14 +69,13 @@
             value="Login"
             @click="logInPlayer"
           />
-          <p>Welcome Back Champion!</p>
+          <p class="message">Welcome Back Champion!</p>
           <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 export default {
@@ -119,16 +128,18 @@ export default {
 }
 
 .instruction {
+  margin: 25px;
   position: absolute;
-  left: 800px;
+  left: 600px;
   height: 800px;
-  width: 1000px;
+  width: 1250px;
+  font-size : 18px;
   border: 1px solid red;
+   font-family: "Fredoka One", cursive;
 }
 
 .instruction-text-left {
   margin: 20px 0px 100px 0px;
-
   font-size: 18px;
   text-align: left;
   font-family: "Fredoka One", cursive;
@@ -137,12 +148,12 @@ export default {
 #modal {
   position: absolute;
   top: 200px;
-  left: 75px;
+  left: 25px;
 }
 .modal-container {
   width: 450px;
   height: 400px;
-  margin: 75px 100px 0px 50px;
+  margin: 75px 100px 0px 25px;
   position: absolute;
   background-color: rgba(218, 200, 190, 1);
   border: 2px solid rgba(128, 100, 100, 1);
@@ -191,7 +202,7 @@ input {
   cursor: pointer;
 }
 
-p {
+.message {
   margin-top: 20px;
   font-size: 24px;
   text-align: center;
