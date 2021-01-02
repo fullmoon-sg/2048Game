@@ -29,12 +29,12 @@
       <div class="game-score">
         <h3>Game Score</h3>
         <h2>{{ score }}</h2>
-      </div>
+      </div><!-- end of Game Score div -->
       <div class="game-score">
         <h3>Best Score</h3>
         <h2>{{ sharedData.bestScore }}</h2>
-      </div>
-      <!-- end of Game Score div -->
+      
+      </div><!-- end of Best Score div -->
       <div>
         <div class="control" v-if="control">
           <div
@@ -109,7 +109,7 @@
             </div>
           </div>
           <div
-            class="down btn btn-info btn-lg btn3d"
+            class="down btn btn-info btn-lg "
             @click="down"
             style="cursor: pointer"
           >
@@ -135,8 +135,7 @@
         <div class="control" v-else>
           <p>Click "Restart" to begin a new Game</p>
         </div>
-      </div>
-      <!-- end of control div -->
+      </div><!-- end of control div -->
       <div class="menu">
         <div class="reset" @click="restart">
           <button class="btn btn-danger btn-lg btn3d">Restart</button>
@@ -428,7 +427,7 @@ export default {
 
 .data {
   position: absolute;
-  left: 575px;
+  left: 625px;
   background-color: #6e6e6e;
   margin-top: 100px;
   width: 325px;
@@ -449,12 +448,11 @@ export default {
 }
 
 .control {
-  margin: 25px;
   height: 225px;
   width: 250px;
   position: absolute;
   top: 315px;
-  left: 15px;
+  left: 40px;
 }
 
 .game-score {
@@ -492,9 +490,10 @@ export default {
 
 .down {
   position: absolute;
+  bottom:0px;
   margin: 0px;
   width: 80px;
-  left: 90px;
+  left: 85px;
   height: 70px;
 }
 
@@ -513,7 +512,7 @@ export default {
 
 .draw-broad {
   position: absolute;
-  right: 150px;
+  right: 100px;
   background-color: #6e6e6e;
   width: 750px;
   height: 750px;
