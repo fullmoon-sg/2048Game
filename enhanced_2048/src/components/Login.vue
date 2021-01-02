@@ -5,12 +5,15 @@
         <h2>How to Play?</h2>
       </div>
       <div class="instruction-text-left">
-       <ul>
-       <li>Please procee to login or register for a new account to play</li>
-       <li> You can also choose to play without login or registering for a<br>
-            new account. However your score will not be stored in the <br> database</li>
+        <ul>
+          <li>Please procee to login or register for a new account to play</li>
+          <li>
+            You can also choose to play without login or registering for a<br />
+            new account. However your score will not be stored in the <br />
+            database
+          </li>
         </ul>
-        </div>
+      </div>
       <div class="modal-container" id="modal">
         <div v-if="register">
           <span class="modal-heading">ENTER YOUR DETAILS</span>
@@ -88,25 +91,23 @@ export default {
       this.name = "";
       this.password = "";
       alert("A new champion has been registered");
-      this.$router.push('GameBoard') 
+      this.$router.push("GameBoard");
     },
     logInPlayer: async function () {
       let response = await axios.get(
         "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add"
       );
       this.playersRecord = response.data;
-     
+
       for (let record of this.playersRecord) {
-        if (this.name === record.name && this.password === record.password)
-        {
-          this.$emit('loginName',this.name);
-          alert("You have successfully login.")
-          this.$router.push('GameBoard') 
+        if (this.name === record.name && this.password === record.password) {
+          this.$emit("loginName", this.name);
+          alert("You have successfully login.");
+          this.$router.push("GameBoard");
           return true;
         }
-        
       }
-      alert("Your record cannot be found")
+      alert("Your record cannot be found");
     },
   },
 };
@@ -125,10 +126,10 @@ export default {
   border: 1px solid red;
 }
 
-.instruction-text-left{
-    margin: 20px 0px 100px 0px;
+.instruction-text-left {
+  margin: 20px 0px 100px 0px;
 
-  font-size: 24px;
+  font-size: 18px;
   text-align: left;
   font-family: "Fredoka One", cursive;
 }

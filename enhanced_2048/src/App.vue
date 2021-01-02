@@ -59,6 +59,6 @@ export default {
 
 <style>
 .navbar {
-  background-color: rgba(250, 200, 200, 1) !important;
+  background-color: #6e6e6e !important;
 }
 </style>

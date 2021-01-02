@@ -412,7 +412,6 @@ export default {
 <style scoped>
 .box {
   margin: 0px;
-  background-color: rgba(248, 233, 248, 1);
   display: flex;
   font-family: "Fredoka One", cursive;
   width: 1500px;
@@ -430,7 +429,7 @@ export default {
 .data {
   position: absolute;
   left: 575px;
-  background-color: #c6b6aa;
+  background-color: #6e6e6e;
   margin-top: 100px;
   width: 325px;
   height: 650px;
@@ -440,13 +439,13 @@ export default {
 #name {
   text-align: center;
   font-size: 32px;
-  color: grey;
+  color:white;
 }
 
 .name {
   text-align: center;
   font-size: 48px;
-  color: grey;
+  color: white;
 }
 
 .control {
@@ -459,7 +458,7 @@ export default {
 }
 
 .game-score {
-  background-color: #dacece;
+  background-color: #adadad;
   top: 50px;
   /* padding: 0px 0px 15px 0px; */
   margin: 10px;
@@ -515,7 +514,7 @@ export default {
 .draw-broad {
   position: absolute;
   right: 150px;
-  background-color: #c6b6aa;
+  background-color: #6e6e6e;
   width: 750px;
   height: 750px;
   margin: 50px 25px 25px;
@@ -526,7 +525,7 @@ export default {
 td {
   width: 160px;
   height: 160px;
-  background-color: #dacece;
+  background-color:#ADADAD;
   border-radius: 15px;
   float: left;
   padding: 20px;
@@ -536,7 +535,7 @@ td {
 
 .row-col-text {
   font-size: 72px;
-  color: grey;
+  color:grey;
 }
 
 .menu {
