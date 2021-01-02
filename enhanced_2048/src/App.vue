@@ -19,6 +19,11 @@
               ><router-link to="/GameBoard">GameBoard</router-link></a
             >
           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#"
+              ><router-link to="/ManageRecord">Manage Record (For admin only)</router-link></a
+            >
+          </li>
         </ul>
       </div>
     </nav>

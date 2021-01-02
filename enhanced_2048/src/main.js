@@ -17,6 +17,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import GameBoard from './components/GameBoard'
 import Login from './components/Login'
 import Home from './components/Home'
+import ManageRecord from './components/ManageRecord'
 
 const routes = [
     {
@@ -28,6 +29,9 @@ const routes = [
     {
         path:'/Home', component : Home
     },
+    {
+        path:'/ManageRecord', component : ManageRecord
+    }
 ]
 
 const router = new VueRouter({

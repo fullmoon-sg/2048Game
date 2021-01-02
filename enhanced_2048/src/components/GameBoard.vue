@@ -1,25 +1,25 @@
 <template>
   <div class="box">
     <div class="gif">
-      <div v-if="score < 20">
+      <div v-if="score < 50">
         <img src="../components/images/no_audience.gif" />
       </div>
-      <div v-else-if="score >= 20 && score < 50">
+      <div v-else-if="score >= 50 && score < 100">
         <img src="../components/images/little_audience.gif" />
       </div>
-      <div v-else-if="score >= 50 && score < 100">
+      <div v-else-if="score >= 100 && score < 150">
         <img src="../components/images/moderate_audience.gif" />
       </div>
-      <div v-else-if="score >= 100 && score < 150">
+      <div v-else-if="score >= 150 && score < 200">
         <img src="../components/images/crowded.gif" />
       </div>
-      <div v-else-if="score >= 150 && score < 200">
+      <div v-else-if="score >= 200 && score < 250">
         <img src="../components/images/huge_crowd.gif" />
       </div>
-      <div v-else-if="score >= 200 && score < 250">
+      <div v-else-if="score >= 250 && score < 300">
         <img src="../components/images/huge1_crowd.gif" />
       </div>
-      <div v-else-if="score >= 250">
+      <div v-else-if="score >= 300">
         <img src="../components/images/huge2_crowd.gif" />
       </div>
     </div>
@@ -142,10 +142,10 @@
           <button class="btn btn-danger btn-lg btn3d">Restart</button>
         </div>
         <div>
-          <div class="Power" @click="power" v-if="powerUse">
+          <div class="power" @click="power" v-if="powerUse">
             <button class="btn btn-magick btn-lg btn3d">Power 2048</button>
           </div>
-          <div class="Power" v-else>
+          <div class="power" v-else>
             <button class="btn btn-magick btn-lg btn3d">Deactived</button>
           </div>
         </div>
@@ -168,7 +168,7 @@
   </div>
   <!-- end of container div -->
 </template>
-<script>
+<script> 
 import axios from "axios";
 export default {
   props: ["sharedData"],
@@ -565,7 +565,7 @@ td {
   background-color: #d73814;
 }
 
-.Power {
+.power {
   position: relative;
   left: 50px;
 }

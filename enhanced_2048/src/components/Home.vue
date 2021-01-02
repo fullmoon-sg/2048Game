@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Hall of Fame (TOP 10)</h1>  
+    <h1>Hall of Fame (TOP 10)</h1>
     <div>
       <table class="table">
         <thead class="table-header">
@@ -32,7 +32,7 @@
 <script>
 import axios from "axios";
 export default {
-     data: function () {
+  data: function () {
     return {
       hall_fame: [],
     };
@@ -44,12 +44,12 @@ export default {
     this.hall_fame = response.data;
     this.extractHighScore();
   },
-  methods : {
-  extractHighScore: function(){
-        let scores = this.sortScore
-        let highScore = scores[0].score;
-        this.$emit('bestScore', highScore);
-  },
+  methods: {
+    extractHighScore: function () {
+      let scores = this.sortScore;
+      let highScore = scores[0].score;
+      this.$emit("bestScore", highScore);
+    },
   },
   computed: {
     sortScore: function () {
@@ -58,15 +58,15 @@ export default {
         return b.score - a.score;
       });
       return sortScore;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
 h1 {
-    margin : 15px;
-    padding :10px;
+  margin: 15px;
+  padding: 10px;
   text-align: center;
   font-family: "Fredoka One", cursive;
 }
