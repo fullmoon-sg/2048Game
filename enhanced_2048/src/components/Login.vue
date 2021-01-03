@@ -243,16 +243,16 @@ input {
 }
 
 .btn3d.btn-info {
-  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
-    0 8px 0 0 #348fd2, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-  background-color: #39b3d7;
+  box-shadow: 0 0 0 1px rgba(180,180,190) inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 rgba(200,200,190,1), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color:rgba(218, 200, 190);
 }
 
 .btn3d.btn-info:active,
 .btn3d.btn-info.active {
-  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+  box-shadow: 0 0 0 1px #ead3fa inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
     0 1px 3px 1px rgba(0, 0, 0, 0.3);
-  background-color: #39b3d7;
+  background-color: rgba(218, 200, 190);
 }
 
 </style>

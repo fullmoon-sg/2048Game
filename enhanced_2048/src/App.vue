@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <h1 class="navbar-brand" href="#">2048</h1>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
