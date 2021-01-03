@@ -579,16 +579,6 @@ td {
   margin-right: 2px;
 }
 
-.btn3d:active:focus,
-.btn3d:focus:hover,
-.btn3d:focus {
-  outline: medium none;
-}
-
-.btn3d:active,
-.btn3d.active {
-  top: 2px;
-}
 .btn3d.btn-magick {
   color: #fff;
   box-shadow: 0 0 0 1px #9a00cd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,

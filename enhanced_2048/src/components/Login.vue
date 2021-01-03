@@ -2,18 +2,32 @@
   <div>
     <div class="login-instruction">
       <div class="instruction">
-        <h2>The Enhanced 2048</h2>
-        <p>What is original 2048 ? <br><br>The original 2048 is a game where you combine numbered tiles in order to gain a 
+       <div v-if="page === 1">
+       <h2>The Enhanced 2048</h2>
+        <p>What is original 2048 ? <br>The original 2048 is a game where you combine numbered tiles in order to gain a 
             higher numbered tile. You start with one random number of 2 or 4 on a piece of tile. Your goal in the game is to
             gain scoring through combining the tiles so that it will add up the score to achieve the number 2048. </p>
-        <p>What is enhanced 2048 <br><br>In "Enhanced 2048", we re-invented the game to make it simple to play. In the original
+        <p>What is enhanced 2048 <br>In "Enhanced 2048", we re-invented the game to make it simple to play. In the original
         2048, you cannot combine two tiles when there is a different numbering tile in-between it. However, in "Enhanced 2048", you
         can. Simple right? In addition, we created a "Power 2048" button that can use it once per game. So, you may wondering what 
         is "Power 2048" ? By using "Power 2048", the game master will randomly removing up to 3 numbering tiles instantly. This
         features is extremly useful when you are left with one or two empty tiles before you are running out of tile to play.
         So what is the down-side? Well, while the game mastering randomly remove the numbering tiles, the system will deduct the 
         numbering tile score as well. So, use it wisely gamer.</p>
-        <p>How to control ? </p>
+        <p>How to control ? <br> The game is controlled by using the arrow button located at the left side of the game board.<br><br>
+        <img src="../components/images/control.gif" width="550px" height= "300px"></p>
+        <button class = "btn btn-info btn-lg btn3d" disabled>Previous Page</button>
+        <button class = "btn btn-info btn-lg btn3d" @click="nextPage">Next Page</button> 
+        </div>
+         <div v-else-if="page === 2">
+        <p>Power 2048 button <br>During the game, you can use the "Power 2048" button once. Once the button is pressed, the system<br>
+        will randoming removing up to 3 numbering tiles. <br><img src="../components/images/power.gif" width="550px" height= "275px"></p>
+        <p> Reset button <br> The reset button is a useful feature for player who wants to reset and start a new game. However, player<br>
+        needs to know that the previous scoring will not be recorded into the database. <br><img src="../components/images/reset.gif" width="550px" height= "275px"></p>
+
+        <button class = "btn btn-info btn-lg btn3d" @click="previousPage">Previous Page</button>
+        <button class = "btn btn-info btn-lg btn3d" disabled>Next Page</button> 
+        </div>
       </div>
       <div class="instruction-text-left">
         <ul>
@@ -78,12 +92,15 @@
 </template>
 <script>
 import axios from "axios";
+
 export default {
+ 
   data: function () {
     return {
       name: "",
       password: "",
       register: true,
+      page : 1
     };
   },
   methods: {
@@ -118,6 +135,12 @@ export default {
       }
       alert("Your record cannot be found");
     },
+    previousPage : function(){
+        this.page = 1;
+    },
+     nextPage : function(){
+      this.page = 2;
+  }
   },
 };
 </script>
@@ -134,7 +157,6 @@ export default {
   height: 800px;
   width: 1250px;
   font-size : 18px;
-  border: 1px solid red;
    font-family: "Fredoka One", cursive;
 }
 
@@ -208,4 +230,29 @@ input {
   text-align: center;
   font-family: "Fredoka One", cursive;
 }
+
+.btn3d {
+  position: relative;
+  top: -6px;
+  border: 0;
+  transition: all 40ms linear;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.btn3d.btn-info {
+  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #348fd2, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #39b3d7;
+}
+
+.btn3d.btn-info:active,
+.btn3d.btn-info.active {
+  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #39b3d7;
+}
+
 </style>
