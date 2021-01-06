@@ -84,7 +84,7 @@
             @click="logInPlayer"
           />
           <p class="message">Welcome Back Champion!</p>
-          <!-- <button @click="!registry" class="signIn">Have an account already?</button> -->
+        
         </div>
       </div>
     </div>
