@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-      <component-to-refresh :key="componentKey"/>
     <div class="left">
       <div>
         <h1>Hall of Fame (TOP 10)</h1>
@@ -16,14 +15,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="hf in sortScore.slice(0,10)" v-bind:key="hf._id">
+            <tr v-for="(hf,index) in sortScore.slice(0,10)" v-bind:key="hf._id">
               <td>{{ hf._id }}</td>
               <td>{{ hf.name }}</td>
               <td>{{ hf.score }}</td>
               <button
                 type="button"
                 class="btn btn-danger btn-lg btn3d"
-                @click="toDelete(hf._id)"
+                @click="toDelete(hf._id,index)"
               >
                 Delete
               </button>
@@ -73,7 +72,6 @@ export default {
     return {
       hall_fame: [],
       player_record: [],
-      componentKey : 0
     };
   },
   created: async function () {
@@ -88,27 +86,23 @@ export default {
     this.player_record = response_pc.data;
   },
   methods: {
-    toDelete: async function (id) {
+    toDelete: async function (id,index) {
       await axios.delete(
         "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/" +
           id
       );
-      this.hall_fame.slice(id, 0);
+      this.hall_fame.splice(index,1);
       alert("This item has been deleted");
+   
     },
-    deleteRecord: async function (id) {
+    deleteRecord: async function (id,index) {
       await axios.delete(
         "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add/" +
           id
       );
-      this.player_record.slice(id, 0);
-      alert("This item has been deleted");
-      this.forceRender();
-      console.log(this.componentKey)
+      this.player_record.splice(index, 1);
+      alert("This item has been deleted");   
     },
-    forceRender : function(){
-        this.componentKey += 1;
-    }
   },
   computed: {
     sortScore: function () {
