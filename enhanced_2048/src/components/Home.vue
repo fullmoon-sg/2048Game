@@ -19,7 +19,7 @@
         </tbody>
       </table>
       <css-doodle>
-        :doodle { @grid: 15 / 100vmax; background: #fff; cursor: pointer; }
+        :doodle { @grid: 15 / 100vmax; background: #EEEEEE; cursor: pointer; }
         :doodle(:hover) { --s: 1 ; } :after { content: @pick(2,0,4,8);
         font-size: 4vmax; color: #E6E4DB; transform: scale(@rand(.2, .9)); }
         transition: .5s cubic-bezier(.175, .885, .32, 1.275); transition-delay:

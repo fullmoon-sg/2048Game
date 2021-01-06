@@ -20,23 +20,24 @@
         <button class = "btn btn-info btn-lg btn3d" @click="nextPage">Next Page</button> 
         </div>
          <div v-else-if="page === 2">
-        <p>Power 2048 button <br>During the game, you can use the "Power 2048" button once. Once the button is pressed, the system<br>
+        <p>Power 2048 button <br>During the game, you can use the <img src="../components/images/power_btn.jpg" height="50" width="110"> button once. Once the button is pressed, the system<br>
         will randoming removing up to 3 numbering tiles. <br><img src="../components/images/power.gif" width="550px" height= "275px"></p>
-        <p> Reset button <br> The reset button is a useful feature for player who wants to reset and start a new game. However, player<br>
-        needs to know that the previous scoring will not be recorded into the database. <br><img src="../components/images/reset.gif" width="550px" height= "275px"></p>
+        <p> Reset button <br> The <img src="../components/images/reset_btn.jpg" height="50" width="110">  is a useful feature for player who wants to reset and start a new game. However, player<br>
+        needs to aware that the current scoring will not be saved into the database. <br><img src="../components/images/reset.gif" width="550px" height= "275px"></p>
 
         <button class = "btn btn-info btn-lg btn3d" @click="previousPage">Previous Page</button>
         <button class = "btn btn-info btn-lg btn3d" disabled>Next Page</button> 
         </div>
       </div>
       <div class="instruction-text-left">
-        <ul>
-          <li>Please procee to login or register for a new account to play</li>
-          <li>
-            You can also choose to play without login or registering for a<br />
+          <h2>Login Instructions</h2>
+        
+          <p>Please procee to login or register for a new account to play</p>
+          <p>
+            You can also choose to play without login or registering for<br /> a
             new account. However, your score will not be enrolled in <br />hall of fame. 
-          </li>
-        </ul>
+          </p>
+        
       </div>
       <div class="modal-container" id="modal">
         <div v-if="register">
@@ -161,7 +162,7 @@ export default {
 }
 
 .instruction-text-left {
-  margin: 20px 0px 100px 0px;
+  margin: 20px 0px 100px 50px;
   font-size: 18px;
   text-align: left;
   font-family: "Fredoka One", cursive;
@@ -218,7 +219,7 @@ input {
   background-color: rgba(218, 200, 190, 1);
   color: black;
   border: 2px;
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: left;
   font-size: 13pt;
   cursor: pointer;
