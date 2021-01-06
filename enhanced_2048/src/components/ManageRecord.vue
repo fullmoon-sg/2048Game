@@ -16,7 +16,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="hf in sortScore" v-bind:key="hf._id">
+            <tr v-for="hf in sortScore.slice(0,10)" v-bind:key="hf._id">
               <td>{{ hf._id }}</td>
               <td>{{ hf.name }}</td>
               <td>{{ hf.score }}</td>
@@ -47,7 +47,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="pc in player_record" v-bind:key="pc._id">
+            <tr v-for="pc in player_record.slice(0,10)" v-bind:key="pc._id">
               <td>{{ pc._id }}</td>
               <td>{{ pc.name }}</td>
               <td>{{ pc.password }}</td>
