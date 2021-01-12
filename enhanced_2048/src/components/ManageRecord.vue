@@ -76,19 +76,19 @@ export default {
   },
   created: async function () {
     let response_hf = await axios.get(
-      "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/"
+      "https://fmb-game-2048.herokuapp.com/"
     );
     this.hall_fame = response_hf.data;
 
     let response_pc = await axios.get(
-      "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add"
+      "https://fmb-game-2048.herokuapp.com/add"
     );
     this.player_record = response_pc.data;
   },
   methods: {
     toDelete: async function (id,index) {
       await axios.delete(
-        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/" +
+        "https://fmb-game-2048.herokuapp.com/" +
           id
       );
       this.hall_fame.splice(index,1);
@@ -97,7 +97,7 @@ export default {
     },
     deleteRecord: async function (id,index) {
       await axios.delete(
-        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/add/" +
+        "https://fmb-game-2048.herokuapp.com/" +
           id
       );
       this.player_record.splice(index, 1);

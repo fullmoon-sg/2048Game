@@ -360,7 +360,7 @@ export default {
     },
     updateScore: async function () {
       await axios.post(
-        "https://3000-fa64be6f-4931-4818-98d6-1cd8524de106.ws-us03.gitpod.io/",
+        "https://fmb-game-2048.herokuapp.com/",
         {
           name: this.sharedData.name,
           score: this.score,
