@@ -19,7 +19,7 @@ git commit -m 'deploy'
 
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git remote add origin https://github.com/fullmoon-sg/2048Game/tree/main/enhanced_2048.git
+git remote add origin https://github.com/fullmoon-sg/2048Game.git
 git push --set-upstream origin gh-pages
 
 cd -
