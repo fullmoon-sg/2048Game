@@ -24,7 +24,7 @@ const routes = [
         path:'/GameBoard', component : GameBoard
     },
     {
-        path:'/Login', component : Login
+        path:'/', component : Login
     },
     {
         path:'/Home', component : Home
