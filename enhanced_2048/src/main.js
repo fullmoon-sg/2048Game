@@ -21,13 +21,13 @@ import ManageRecord from './components/ManageRecord'
 
 const routes = [
     {
-        path:'/', component : Login //Landing page
+        path:'/', component : Login 
     },
     {
         path:'/GameBoard', component : GameBoard
     },
     {
-        path:'/Login', component : Login
+        path:'/Login', redirect: '/'
     },
     {
         path:'/Home', component : Home
