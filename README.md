@@ -46,7 +46,7 @@ different shades of silver when applying the color theme. For the fonts and numb
 I have used MS PowerPoint as a tool to draft to the visual design of the website. Through the process of drafting, it helps me to have a better consistent ways of designing the user 
 interface. 
 
-<img src="/components/images/wireframe.jpg">
+<img src="./enhanced_2048/components/images/wireframe.jpg">
 
 ## Scope
 
