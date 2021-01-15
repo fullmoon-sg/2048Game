@@ -46,7 +46,7 @@ different shades of silver when applying the color theme. For the fonts and numb
 I have used MS PowerPoint as a tool to draft to the visual design of the website. Through the process of drafting, it helps me to have a better consistent ways of designing the user 
 interface. 
 
-<img src="../src/components/wireframe.jpg">
+<img src="/enhanced_204/src/components/wireframe.jpg">
 
 ## Scope
 
@@ -69,11 +69,11 @@ The application is designed based on simple and elegance theme. The intention is
  automatically switches between login and game board page will have one less step to for gamer to proceed to play the game. Alternatively, gamer don’t want to log in but want to come to play, the gamer will have 
  clicked through the navigation bar.
 
-<img src="../src/components/structure.jpg">
+<img src="/enhanced_204/src/components/structure.jpg">
 
 ## Site Map 
 
-<img src="../src/components/images/sitemap.jpg">
+<img src="/enhanced_204/src/components/images/sitemap.jpg">
 
 * Home Page
 	- Hall of Fame 
