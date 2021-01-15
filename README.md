@@ -1,6 +1,6 @@
 # ENHANCED 2048 GAME
 
-## The original 2048 Game
+## The Original 2048 Game
 
 The original 2048 Game is a single-gamer sliding block puzzle game designed by Italian web developer Gabriele Cirulli. The objective of the game is to reach the score of 2048 by 
 sliding the numbered block on a 4x4 grid game board, hence the name of the game. For the gamer to reach the score 2048, the gamer will have to slide the numbering block by using 
@@ -46,7 +46,7 @@ different shades of silver when applying the color theme. For the fonts and numb
 I have used MS PowerPoint as a tool to draft to the visual design of the website. Through the process of drafting, it helps me to have a better consistent ways of designing the user 
 interface. 
 
-<img src="../src/components/images/wireframe.jpg">
+<img src="/enhanced_2048/src/components/images/wireframe.jpg">
 
 ## Scope
 
@@ -69,11 +69,11 @@ The application is designed based on simple and elegance theme. The intention is
  automatically switches between login and game board page will have one less step to for gamer to proceed to play the game. Alternatively, gamer don’t want to log in but want to come to play, the gamer will have 
  clicked through the navigation bar.
 
-<img src="../src/components/images/structure.jpg">
+<img src="/enhanced_2048/src/components/images/structure.jpg">
 
 ## Site Map 
 
-<img src="../src/components/images/sitemap.jpg">
+<img src="/enhanced_2048/src/components/images/sitemap.jpg">
 
 * Home Page
 	- Hall of Fame 
