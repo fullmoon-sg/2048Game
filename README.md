@@ -1,6 +1,6 @@
-# ENHANCED_2048_GAME
+# ENHANCED 2048 GAME
 
-The original 2048 Game
+## The original 2048 Game
 
 The original 2048 Game is a single-gamer sliding block puzzle game designed by Italian web developer Gabriele Cirulli. The objective of the game is to reach the score of 2048 by 
 sliding the numbered block on a 4x4 grid game board, hence the name of the game. For the gamer to reach the score 2048, the gamer will have to slide the numbering block by using 
@@ -11,7 +11,7 @@ numbered block position in-between two same numbered block.
 After the end of each movement, a new numbered block either with a score of ‘2’ or ‘4’ will randomly appears on the grid of the game board. When the gamer reaches 2048 score, the 
 gamer can continue to play until there are no empty grid left in the game board. 
 
-The Enhanced 2048 Game
+## The Enhanced 2048 Game
 
 For my project, I would be modifying one of the gaming rules and also add a new feature so as to make it simpler for gamer to win the game. The new game rule is that two same numbered 
 block would allow to be merged even if there is a difference numbered block in-between them. As for the new feature, a “Power 2048” button would allow the system to randomly remove 
@@ -36,7 +36,7 @@ bar and body so that the gamers will find it easy to navigation around. In term 
 The reason for button control is preferred as the original 2048 was designed for mobile application and as such, it is more appropriate to use the touch input due to screen space 
 constraint. Secondly, the game is designed for a desktop platform, as such, there are many screen area for control button and also make the website less empty.
 
-## UI;
+## UI
 
 In this project, I tried not to deviate too much from the original game color theme so that it can still retain some of the original game charisma. Therefore, I have choose a few 
 different shades of silver when applying the color theme. For the fonts and numbers, I have choose “Fredoke One” as this font goes well with the different shades of silver color.
@@ -46,7 +46,7 @@ different shades of silver when applying the color theme. For the fonts and numb
 I have used MS PowerPoint as a tool to draft to the visual design of the website. Through the process of drafting, it helps me to have a better consistent ways of designing the user 
 interface. 
 
-<img src="/enhanced_204/src/components/wireframe.jpg">
+<img src="/enhanced_2048/src/components/wireframe.jpg">
 
 ## Scope
 
@@ -69,11 +69,11 @@ The application is designed based on simple and elegance theme. The intention is
  automatically switches between login and game board page will have one less step to for gamer to proceed to play the game. Alternatively, gamer don’t want to log in but want to come to play, the gamer will have 
  clicked through the navigation bar.
 
-<img src="/enhanced_204/src/components/structure.jpg">
+<img src="/enhanced_2048/src/components/structure.jpg">
 
 ## Site Map 
 
-<img src="/enhanced_204/src/components/images/sitemap.jpg">
+<img src="/enhanced_2048/src/components/images/sitemap.jpg">
 
 * Home Page
 	- Hall of Fame 
@@ -105,24 +105,24 @@ The application is designed based on simple and elegance theme. The intention is
 
 ## Navigation Design
 
-Hall of Fame page – The home page is a simple page that has a body to display the top 10 best gamer name and score. The intent to restrict displaying 10 names is to create a challenger environment for gamers 
+* Hall of Fame page – The home page is a simple page that has a body to display the top 10 best gamer name and score. The intent to restrict displaying 10 names is to create a challenger environment for gamers 
 to compete among each other. 
 
-Login page – This page body is spilt into two sections. The left section is the login page while the right section is the game instructions. For the login page, the layout is a simple form which requires
+* Login page – This page body is spilt into two sections. The left section is the login page while the right section is the game instructions. For the login page, the layout is a simple form which requires
 gamer to key in their name and password to create an account. User can choose to create a new user account or log in into their existing account. Alternatively, the user can not to login or create account by
 proceed to play the game. However, under such circumstances, the gamer will be treated as anonymous and assign a name as “John Doe”. In addition, “John Doe” scores will not be registered and will be excluded 
 from “Hall of Fame” category. On the right section, it contains a two pages of simple instructions that teaches the special features that are not available in the original 2048 game. To view the different page 
 of instructions, a “previous” and “next page” button is available to use.On the right section is the instruction page. The intent of creating an instruction page is to inform the gamer on the addition feature 
 available on this game. 
 
-Gameboard page – This page is spilt into 3 sections. The first section is located on the left, which contains a serial of funny animated gif images. The intent to provide some amusements to the game as the 
+* Gameboard page – This page is spilt into 3 sections. The first section is located on the left, which contains a serial of funny animated gif images. The intent to provide some amusements to the game as the 
 animated images will change in accord to the gamer’s score. For example, the animated gift will started off with no audience when the score is low and a stadium of audience will cheers when the gamer reaches
 high score. On the center section, it contains all the relevant information and control functions of the game. For the information portion, it contains the gamer’s name and also their current score. Right below 
 the current score is that highest score ever record in the game. In the control section, 4 arrows button to indicate the movement direction and also special features like “Reset” and “Power 2048” button. Once 
 the game ended, the 4 arrows button will disappear so that to inform the gamer that the game has ended. They could restart by activating the “reset button”. On the right of the section is a 4 x 4 grid game. This 
 is when the randomly numbered block will appear or the merging numbered block takes place.
 
-Manage Records page – This page is supposed to view by the administration only. It supposed to be only able to view it when the administrative log in with special user account and password. However, this is not 
+* Manage Records page – This page is supposed to view by the administration only. It supposed to be only able to view it when the administrative log in with special user account and password. However, this is not 
 implementation this project. The intent of this page to allow the administrative to have quickly access to delete old record instead of login into database to remove unwanted accounts.
 
 ## Testing
