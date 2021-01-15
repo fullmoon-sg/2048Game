@@ -46,7 +46,7 @@ different shades of silver when applying the color theme. For the fonts and numb
 I have used MS PowerPoint as a tool to draft to the visual design of the website. Through the process of drafting, it helps me to have a better consistent ways of designing the user 
 interface. 
 
-<img src="/enhanced_2048/src/components/wireframe.jpg">
+<img src="../enhanced_2048/src/components/wireframe.jpg">
 
 ## Scope
 
@@ -69,11 +69,11 @@ The application is designed based on simple and elegance theme. The intention is
  automatically switches between login and game board page will have one less step to for gamer to proceed to play the game. Alternatively, gamer don’t want to log in but want to come to play, the gamer will have 
  clicked through the navigation bar.
 
-<img src="/enhanced_2048/src/components/structure.jpg">
+<img src="../enhanced_2048/src/components/structure.jpg">
 
 ## Site Map 
 
-<img src="/enhanced_2048/src/components/images/sitemap.jpg">
+<img src="../enhanced_2048/src/components/images/sitemap.jpg">
 
 * Home Page
 	- Hall of Fame 
@@ -141,11 +141,11 @@ I would like to acknowledge the following institution, API provider and websites
 - Bootstrap for HTML and CSS layout. https://getbootstrap.com/ 
 - Google fonts for the html https://fonts.google.com/specimen/Fredoka+One
 - The following website for providing the animated GIF files.
-https://giphy.com/explore/cheering-crowd
-https://giphy.com/gifs/l0HlSt6V3LFjKcqUE/html5
-https://giphy.com/gifs/oscars-academy-awards-oscars-2020-XH57VC47wCEnUPqErW
-https://giphy.com/explore/big-crowd
-http://www.lowgif.com/view.html
-https://giphy.com/gifs/yvY3xhx8wCWQb8XPGw/html5
+- https://giphy.com/explore/cheering-crowd
+- https://giphy.com/gifs/l0HlSt6V3LFjKcqUE/html5
+- https://giphy.com/gifs/oscars-academy-awards-oscars-2020-XH57VC47wCEnUPqErW
+- https://giphy.com/explore/big-crowd
+- http://www.lowgif.com/view.html
+- https://giphy.com/gifs/yvY3xhx8wCWQb8XPGw/html5
 
                            **For Educational purposes**  
