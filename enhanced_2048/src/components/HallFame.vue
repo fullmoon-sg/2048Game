@@ -38,9 +38,7 @@ export default {
     };
   },
   created: async function () {
-    let response = await axios.get(
-      "https://fmb-game-2048.herokuapp.com/"
-    );
+    let response = await axios.get("https://fmb-game-2048.herokuapp.com/");
     this.hall_fame = response.data;
     this.extractHighScore();
   },
@@ -104,6 +102,51 @@ span {
   display: inline-block;
   text-indent: -2rem;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    margin: 5px;
+    padding: 5px;
+    font-size: 22px;
+    text-align: center;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .table {
+    position: absolute;
+    left: 50px;
+    width: 650px;
+    height: 400px;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .table-header {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: rgba(250, 200, 200);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+    font-size: 18px;
+    color: grey;
+  }
+
+  body {
+    font: 900 100px/0.65 system-ui;
+    margin: 0;
+    overflow: hidden;
+    width: 110%;
+  }
+  span {
+    display: inline-block;
+    text-indent: -2rem;
+    position: relative;
+  }
 }
 </style>
 

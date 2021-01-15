@@ -161,23 +161,18 @@ export default {
   methods: {
     addPlayer: async function () {
       this.$emit("loginName", this.name);
-      await axios.post(
-        "https://fmb-game-2048.herokuapp.com/add",
-        {
-          name: this.name,
-          password: this.password,
-          playersRecord: [],
-        }
-      );
+      await axios.post("https://fmb-game-2048.herokuapp.com/add", {
+        name: this.name,
+        password: this.password,
+        playersRecord: [],
+      });
       this.name = "";
       this.password = "";
       alert("A new champion has been registered");
       this.$router.push("GameBoard");
     },
     logInPlayer: async function () {
-      let response = await axios.get(
-        "https://fmb-game-2048.herokuapp.com/add"
-      );
+      let response = await axios.get("https://fmb-game-2048.herokuapp.com/add");
       this.playersRecord = response.data;
 
       for (let record of this.playersRecord) {
@@ -310,5 +305,100 @@ input {
   box-shadow: 0 0 0 1px #ead3fa inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
     0 1px 3px 1px rgba(0, 0, 0, 0.3);
   background-color: rgba(218, 200, 190);
+}
+
+@media (max-width: 768px) {
+  .login-instruction {
+    position: absolute;
+    display: inline-block;
+
+    height: 350px;
+    width: 730px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  .instruction {
+    margin: 5px;
+    position: absolute;
+    width: 350px;
+    height: 340px;
+    left: 375px;
+    font-size: 12px;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .instruction-text-left {
+    margin: 10px;
+    width: 400px;
+    font-size: 12px;
+    text-align: left;
+    font-family: "Fredoka One", cursive;
+  }
+
+  #modal {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+  }
+  .modal-container {
+    width: 350px;
+    height: 220px;
+    margin: 5px 10px 0px 5px;
+    position: absolute;
+    background-color: rgba(218, 200, 190, 1);
+    border: 2px solid rgba(128, 100, 100, 1);
+    padding: 10px;
+    box-shadow: 0px 0px 10px 2px black;
+  }
+
+  .modal-heading {
+    width: 100%;
+    display: block;
+    height: 30px;
+    margin-bottom: 5px;
+    color: yellow;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Fredoka One", cursive;
+  }
+
+  input {
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 320px;
+    border-radius: 2px;
+    height: 40px;
+    border: 2px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .btnRegister {
+    color: black;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .signIn {
+    background-color: rgba(218, 200, 190, 1);
+    color: black;
+    border: 2px;
+    margin-top: 5px;
+    text-align: left;
+    font-size: 10pt;
+    cursor: pointer;
+  }
+
+  .message {
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: center;
+    font-family: "Fredoka One", cursive;
+  }
 }
 </style>

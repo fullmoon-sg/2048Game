@@ -43,8 +43,8 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="50"
+              width="25"
+              height="25"
               fill="currentColor"
               class="bi bi-arrow-up-square"
               viewBox="0 0 16 16"
@@ -67,8 +67,8 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
+                width="25"
+                height="25"
                 fill="currentColor"
                 class="bi bi-arrow-left-square"
                 viewBox="0 0 16 16"
@@ -90,8 +90,8 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
+                width="25"
+                height="25"
                 fill="currentColor"
                 class="bi bi-arrow-right-square"
                 viewBox="0 0 16 16"
@@ -591,4 +591,199 @@ td {
     0 1px 3px 1px rgba(0, 0, 0, 0.3);
   background-color: #bb39d7;
 }
+
+@media (max-width: 768px) {
+.gif {
+ display : none;
+}
+
+.draw-broad {
+  position: absolute;
+ left: 30px;
+  background-color: #6e6e6e;
+  width: 430px;
+  height: 340px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+td {
+  width: 90px;
+  height: 70px;
+  background-color:#ADADAD;
+  border-radius: 5px;
+  float: center;
+  padding: 1px 5px 1px 5px;
+  margin: 6px;
+  text-align: center;
+}
+
+.row-col-text {
+  padding : 5px 0px 0px 0px;
+  font-size: 36px;
+  color:grey;
+}
+
+.data {
+  position: absolute;
+  left:495px;
+  background-color: #6e6e6e;
+  margin-top: 10px;
+  width: 225px;
+  height: 340px;
+  border-radius: 15px;
+}
+
+#name {
+  text-align: center;
+  font-size: 18px;
+  color:white;
+}
+
+.name {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.game-score {
+  background-color: #adadad;
+  top: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 215px;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+}
+
+h2{
+    font-size: 18px;
+}
+
+h3{
+    font-size: 18px;
+}
+
+.control {
+  height: 125px;
+  width: 240px;
+  position: absolute;
+  top: 170px;
+  left: 10px;
+}
+
+.top {
+
+  left: 77px;
+}
+.left-right {
+    position: absolute;
+    top: 40px;
+  left: 7px;
+  display: inline-flex;
+}
+
+.left {
+  position: relative;
+  left: 0px;
+  margin: 5px;
+}
+
+.right {
+  position: relative;
+  left: 75px;
+  margin: 5px;
+}
+
+.down {
+  position: absolute;
+  bottom:0px;
+  margin: 0px;
+  width: 55px;
+  left: 80px;
+  height: 55px;
+}
+
+.btn3d.btn-info {
+  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 2px 0 0 #348fd2, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+  background-color: #39b3d7;
+}
+
+.btn3d.btn-info:active,
+.btn3d.btn-info.active {
+  box-shadow: 0 0 0 1px #00a5c3 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 2px 1px rgba(0, 0, 0, 0.3);
+  background-color: #39b3d7;
+}
+
+.btn3d {
+  position: relative;
+  top: -6px;
+  border: 0;
+  transition: all 40ms linear;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.menu {
+  position: absolute;
+  margin: 0;
+  top: 300px;
+  display: flex;
+  width:200px;
+  height: 40px;
+}
+
+.reset {
+  position: relative;
+  left: 5px;
+  width: 50px !important;
+  height: 15px;
+}
+
+.btn3d.btn-danger {
+  box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 2px 0 0 #aa0000, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+  background-color: #d73814;
+}
+
+.btn3d.btn-danger:active,
+.btn3d.btn-danger.active {
+  box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 2px 1px rgba(0, 0, 0, 0.3);
+  background-color: #d73814;
+}
+
+.btn-lg{
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+.power {
+  position: relative;
+  left: 60px;
+}
+
+.btn3d.btn-magick {
+  color: #fff;
+  box-shadow: 0 0 0 1px #9a00cd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 2px 0 0 #9823d5, 0 2px 2px 1px rgba(0, 0, 0, 0.5);
+  background-color: #bb39d7;
+}
+
+.btn3d.btn-magick:active,
+.btn3d.btn-magick.active {
+  box-shadow: 0 0 0 1px #9a00cd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 2px 1px rgba(0, 0, 0, 0.3);
+  background-color: #bb39d7;
+}
+ 
+ }
+
 </style>

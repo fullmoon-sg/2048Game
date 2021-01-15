@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import 'css-doodle';
 
 
+
 Vue.config.productionTip = false
 
 // Install BootstrapVue

@@ -1,46 +1,34 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">2048</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div>
+      <b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar-brand href="#">2048</b-navbar-brand>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              ><router-link to="/HallFame">Hall Of Fame</router-link></a
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item type="dark" href="#"
+              ><router-link to="/HallFame"
+                >Hall Of Fame</router-link
+              ></b-nav-item
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><router-link to="/Login">Login</router-link></a
+            <b-nav-item href="#"
+              ><router-link to="/Login">Login</router-link></b-nav-item
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              ><router-link to="/GameBoard">GameBoard</router-link></a
+            <b-nav-item href="#"
+              ><router-link to="/GameBoard">GameBoard</router-link></b-nav-item
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
+            <b-nav-item href="#"
               ><router-link to="/ManageRecord"
                 >Manage Record (For admin only)</router-link
-              ></a
+              ></b-nav-item
             >
-          </li>
-        </ul>
-      </div>
-    </nav>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
+
     <router-view
       v-on:loginName="storeName"
       :sharedData="sharedData"
@@ -73,8 +61,6 @@ export default {
 </script>
 
 <style>
-
-
 .bg-light {
   border-bottom: 4px solid #dddede;
   border-bottom-left-radius: 5px;

@@ -8,15 +8,18 @@
         <table class="table">
           <thead class="table-header">
             <tr>
-              <th>ID</th>
+              <th id="serialNo">ID</th>
               <th>Name</th>
               <th>Points</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(hf,index) in sortScore.slice(0,10)" v-bind:key="hf._id">
-              <td>{{ hf._id }}</td>
+            <tr
+              v-for="(hf, index) in sortScore.slice(0, 10)"
+              v-bind:key="hf._id"
+            >
+              <td id="serialNo">{{ hf._id }}</td>
               <td>{{ hf.name }}</td>
               <td>{{ hf.score }}</td>
               <button
@@ -39,21 +42,21 @@
         <table class="table">
           <thead class="table-header">
             <tr>
-              <th>ID</th>
+              <th id="serialNo">ID</th>
               <th>Name</th>
               <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="pc in player_record.slice(0,10)" v-bind:key="pc._id">
-              <td>{{ pc._id }}</td>
+            <tr v-for="(pc,index) in player_record.slice(0, 10)" v-bind:key="pc._id">
+              <td id="serialNo">{{ pc._id }}</td>
               <td>{{ pc.name }}</td>
               <td>{{ pc.password }}</td>
               <button
                 type="button"
                 class="btn btn-danger btn-lg btn3d"
-                @click="deleteRecord(pc._id)"
+                @click="deleteRecord(pc._id,index)"
               >
                 Delete
               </button>
@@ -75,9 +78,7 @@ export default {
     };
   },
   created: async function () {
-    let response_hf = await axios.get(
-      "https://fmb-game-2048.herokuapp.com/"
-    );
+    let response_hf = await axios.get("https://fmb-game-2048.herokuapp.com/");
     this.hall_fame = response_hf.data;
 
     let response_pc = await axios.get(
@@ -87,21 +88,15 @@ export default {
   },
   methods: {
     toDelete: async function (id,index) {
-      await axios.delete(
-        "https://fmb-game-2048.herokuapp.com/" +
-          id
-      );
-      this.hall_fame.splice(index,1);
+      await axios.delete("https://fmb-game-2048.herokuapp.com/" + id);
+      this.hall_fame.splice(index, 1);
       alert("This item has been deleted");
-   
     },
     deleteRecord: async function (id,index) {
-      await axios.delete(
-        "https://fmb-game-2048.herokuapp.com/" +
-          id
-      );
+      await axios.delete("https://fmb-game-2048.herokuapp.com/" + id);
+      console.log(index)
       this.player_record.splice(index, 1);
-      alert("This item has been deleted");   
+      alert("This item has been deleted");
     },
   },
   computed: {
@@ -161,5 +156,81 @@ export default {
   box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
     0 1px 3px 1px rgba(0, 0, 0, 0.3);
   background-color: #d73814;
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 700px;
+    height: 420px;
+    display: inline-flex;
+  }
+
+  .left {
+    margin: 5px;
+    padding: 5px;
+    width: 350px;
+    height: 340px;
+    border: 2px solid Red;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .right {
+    position: absolute;
+    right: 5px;
+    margin: 5px;
+    padding: 5px;
+    width: 350px;
+    height: 340px;
+    border: 2px solid Red;
+    font-family: "Fredoka One", cursive;
+  }
+
+  h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  th {
+    font-size: 14px;
+  }
+
+  td {
+    font-size: 14px;
+  }
+
+  #serialNo {
+    display: none;
+  }
+
+  .btn-lg {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .btn3d {
+    position: relative;
+    top: -6px;
+    border: 0;
+    transition: all 40ms linear;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  .btn3d.btn-danger {
+    box-shadow: 0 0 0 1px #b93802 inset,
+      0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 4px 0 0 #aa0000,
+      0 3px 3px 1px rgba(0, 0, 0, 0.5);
+    background-color: #d73814;
+  }
+
+  .btn3d.btn-danger:active,
+  .btn3d.btn-danger.active {
+    box-shadow: 0 0 0 1px #b93802 inset,
+      0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+      0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #d73814;
+  }
 }
 </style>
