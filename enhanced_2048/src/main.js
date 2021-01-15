@@ -16,7 +16,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import GameBoard from './components/GameBoard'
 import Login from './components/Login'
-import Home from './components/Home'
+import HallFame from './components/HallFame'
 import ManageRecord from './components/ManageRecord'
 
 const routes = [
@@ -30,7 +30,7 @@ const routes = [
         path:'/Login', redirect: '/'
     },
     {
-        path:'/Home', component : Home
+        path:'/HallFame', component : HallFame
     },
     {
         path:'/ManageRecord', component : ManageRecord

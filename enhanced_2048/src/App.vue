@@ -18,7 +18,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#"
-              ><router-link to="/Home">Home</router-link></a
+              ><router-link to="/HallFame">Hall Of Frame</router-link></a
             >
           </li>
           <li class="nav-item">
